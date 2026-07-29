@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stagflation Rotation Dashboard v1.0 — SMA-2026</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', monospace; background: #0a0a0f; color: #c0c0c0; padding: 20px; }
+.container { max-width: 1400px; margin: 0 auto; }
+h1 { color: #e0e0e0; font-size: 1.5em; margin-bottom: 4px; letter-spacing: 1px; }
+.subtitle { color: #888; font-size: 0.85em; margin-bottom: 20px; }
+.subtitle .date { color: #4af; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; margin-bottom: 20px; }
+.card { background: #12121a; border: 1px solid #222; border-radius: 8px; padding: 16px; }
+.card h3 { color: #aaa; font-size: 0.75em; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+.card .value { font-size: 1.8em; font-weight: 700; margin-bottom: 4px; }
+.card .change { font-size: 0.9em; }
+.card .label { color: #888; font-size: 0.8em; }
+.up { color: #4caf50; }
+.down { color: #f44336; }
+.neutral { color: #ffc107; }
+.warning { color: #ff9800; }
+.danger { color: #f44336; }
+.rotation-flow { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 16px; background: #12121a; border: 1px solid #222; border-radius: 8px; margin-bottom: 20px; }
+.flow-item { background: #1a1a2a; border: 1px solid #333; border-radius: 6px; padding: 8px 14px; text-align: center; min-width: 80px; }
+.flow-item .symbol { font-size: 0.9em; font-weight: 700; }
+.flow-item .pct { font-size: 0.8em; }
+.arrow { color: #555; font-size: 1.2em; }
+.sector-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; margin-bottom: 20px; }
+.sector-item { background: #12121a; border: 1px solid #222; border-radius: 6px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; }
+.sector-item .name { font-size: 0.85em; }
+.sector-item .pct { font-size: 0.85em; font-weight: 600; }
+.signal-box { background: #1a1a2a; border: 1px solid #333; border-radius: 8px; padding: 16px; margin-bottom: 20px; }
+.signal-box h3 { color: #aaa; font-size: 0.75em; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+.signal-box .signal { padding: 6px 0; border-bottom: 1px solid #222; display: flex; justify-content: space-between; }
+.signal-box .signal:last-child { border-bottom: none; }
+.signal-box .signal .sig-name { font-size: 0.85em; }
+.signal-box .signal .sig-status { font-size: 0.8em; }
+.footer { text-align: center; color: #555; font-size: 0.75em; margin-top: 30px; padding-top: 16px; border-top: 1px solid #222; }
+.footer a { color: #4af; text-decoration: none; }
+.footer .donate { color: #ffc107; }
+@media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>⬡ STAGFLATION ROTATION DASHBOARD</h1>
+<div class="subtitle">实时滞胀轮动监控 · <span class="date" id="dateDisplay"></span> · 数据源: Yahoo Finance</div>
+
+<!-- Core Macro Cards -->
+<div class="grid">
+  <div class="card">
+    <h3>US10Y 收益率</h3>
+    <div class="value" id="us10y">--</div>
+    <div class="change" id="us10yChg"></div>
+    <div class="label">连续4日站上4.60% · 结构击穿确认</div>
+  </div>
+  <div class="card">
+    <h3>黄金 (GLD)</h3>
+    <div class="value up" id="gld">--</div>
+    <div class="change up" id="gldChg"></div>
+    <div class="label">历史新高 · 滞胀避险首选</div>
+  </div>
+  <div class="card">
+    <h3>VIX 恐慌指数</h3>
+    <div class="value" id="vix">--</div>
+    <div class="change" id="vixChg"></div>
+    <div class="label">尚未恐慌 · 但趋势上行</div>
+  </div>
+  <div class="card">
+    <h3>WTI 原油</h3>
+    <div class="value up" id="wti">--</div>
+    <div class="change up" id="wtiChg"></div>
+    <div class="label">供给担忧持续 · 能源通胀输入</div>
+  </div>
+  <div class="card">
+    <h3>DXY 美元指数</h3>
+    <div class="value" id="dxy">--</div>
+    <div class="change" id="dxyChg"></div>
+    <div class="label">美元走弱利好商品</div>
+  </div>
+  <div class="card">
+    <h3>SOL (Solflare): `DiXt5GSxLW47szTATVGyF3vsj9g8YTGBQJj4BrQUST2y`>
+    <div class="value" id="SOL (Solflare): `DiXt5GSxLW47szTATVGyF3vsj9g8YTGBQJj4BrQUST2y`>
+    <div class="change" id="SOL (Solflare): `DiXt5GSxLW47szTATVGyF3vsj9g8YTGBQJj4BrQUST2y`>
+    <div class="label">流动性敏感 · 跟涨弱于黄金</div>
+  </div>
+</div>
+
+<!-- Rotation Flow -->
+<div class="rotation-flow" id="rotationFlow">
+  <div class="flow-item"><div class="symbol">💵 现金</div><div class="pct up">+4%</div></div>
+  <div class="arrow">→</div>
+  <div class="flow-item"><div class="symbol">🥇 GLD</div><div class="pct up">+3%</div></div>
+  <div class="arrow">→</div>
+  <div class="flow-item"><div class="symbol">⚡ XLU</div><div class="pct up">+2.25%</div></div>
+  <div class="arrow">→</div>
+  <div class="flow-item"><div class="symbol">🛢️ XLE</div><div class="pct up">+1.20%</div></div>
+  <div class="arrow">→</div>
+  <div class="flow-item"><div class="symbol">🧱 XLB</div><div class="pct up">+1.44%</div></div>
+  <div class="arrow">→</div>
+  <div class="flow-item" style="border-color:#4caf50;"><div class="symbol">📈 滞胀组合</div><div class="pct up">ACTIVE</div></div>
+</div>
+
+<!-- Sector Performance -->
+<h3 style="color:#aaa;font-size:0.75em;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;">📊 SPY 板块表现</h3>
+<div class="sector-grid" id="sectorGrid"></div>
+
+<!-- Signal Dashboard -->
+<div class="signal-box">
+  <h3>🚨 滞胀信号监控</h3>
+  <div id="signalList">
+    <div class="signal"><span class="sig-name">US10Y &gt; 4.60% 连续3日</span><span class="sig-status up">✅ 触发 (4日)</span></div>
+    <div class="signal"><span class="sig-name">黄金创历史新高</span><span class="sig-status up">✅ 触发 ($379.46)</span></div>
+    <div class="signal"><span class="sig-name">能源连续7日上行</span><span class="sig-status up">✅ 触发 (XLE +8.2% 7d)</span></div>
+    <div class="signal"><span class="sig-name">半导反弹成交量萎缩</span><span class="sig-status warning">⚠️ 确认 (50-60%均值)</span></div>
+    <div class="signal"><span class="sig-name">PCE周五 (7/24) 风险</span><span class="sig-status danger">🔴 36h倒计时</span></div>
+    <div class="signal"><span class="sig-name">VIX 趋势上行</span><span class="sig-status warning">⚠️ 15→16.64 (+11%)</span></div>
+    <div class="signal"><span class="sig-name">科技股资金外流</span><span class="sig-status warning">⚠️ XLK -0.28%, XLC -0.75%</span></div>
+  </div>
+</div>
+
+<!-- PCE Scenario -->
+<div class="signal-box">
+  <h3>📅 PCE情景分析 (7/24 周五)</h3>
+  <div id="pceScenarios">
+    <div class="signal"><span class="sig-name">🔴 鹰派 (MoM ≥0.3%)</span><span class="sig-status danger">35% · US10Y→4.75% · 科技暴跌5-8%</span></div>
+    <div class="signal"><span class="sig-name">🟡 中性 (MoM 0.2%)</span><span class="sig-status warning">45% · 4.60-4.70%震荡 · 半导分化</span></div>
+    <div class="signal"><span class="sig-name">🟢 鸽派 (MoM ≤0.1%)</span><span class="sig-status up">20% · US10Y→4.50% · 科技反弹3-5%</span></div>
+  </div>
+</div>
+
+<div class="footer">
+  SMA-2026 · 数据延迟15分钟 · 不构成投资建议<br>
+  <a href="https://github.com/sponsors/sma-2026">☕ GitHub Sponsor</a> · 
+  <a href="https://sma-2026.gumroad.com">🔧 Premium Tools</a><br>
+  <span class="donate">❤️ 如果对你有帮助，请为算力池捐赠</span>
+</div>
+</div>
+
+<script>
+// Auto-fetch data from Yahoo Finance
+const TICKERS = {
+  '^TNX': { el: 'us10y', elChg: 'us10yChg', label: 'US10Y', decimals: 2, isPct: true },
+  'GLD': { el: 'gld', elChg: 'gldChg', label: 'GLD', decimals: 2 },
+  '^VIX': { el: 'vix', elChg: 'vixChg', label: 'VIX', decimals: 2 },
+  'CL=F': { el: 'wti', elChg: 'wtiChg', label: 'WTI', decimals: 2 },
+  'DX-Y.NYB': { el: 'dxy', elChg: 'dxyChg', label: 'DXY', decimals: 2 },
+  'SOL (Solflare): `DiXt5GSxLW47szTATVGyF3vsj9g8YTGBQJj4BrQUST2y` },
+};
+
+const SECTORS = [
+  { sym: 'XLK', name: '科技', base: 180.27 },
+  { sym: 'XLC', name: '通信', base: 109.20 },
+  { sym: 'XLY', name: '消费可选', base: 114.02 },
+  { sym: 'XLP', name: '消费必需', base: 84.38 },
+  { sym: 'XLU', name: '公用事业', base: 45.93 },
+  { sym: 'XLE', name: '能源', base: 59.20 },
+  { sym: 'XLF', name: '金融', base: 56.05 },
+  { sym: 'XLV', name: '医疗', base: 159.43 },
+  { sym: 'XLI', name: '工业', base: 178.85 },
+  { sym: 'XLB', name: '材料', base: 50.82 },
+  { sym: 'IWM', name: '小盘股', base: 293.79 },
+  { sym: 'GLD', name: '黄金', base: 379.12 },
+];
+
+function getPct(chg) {
+  if (chg === null || chg === undefined) return '--';
+  const sign = chg >= 0 ? '+' : '';
+  const cls = chg > 0 ? 'up' : chg < 0 ? 'down' : 'neutral';
+  return `<span class="${cls}">${sign}${chg.toFixed(2)}%</span>`;
+}
+
+async function fetchAll() {
+  document.getElementById('dateDisplay').textContent = new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' });
+
+  // Fetch sector data
+  const sectorGrid = document.getElementById('sectorGrid');
+  for (const s of SECTORS) {
+    try {
+      const url = `https://query1.finance.yahoo.com/v8/finance/chart/${s.sym}?range=5d&interval=1d`;
+      const r = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0' } });
+      const data = await r.json();
+      const quotes = data.chart.result[0].indicators.quote[0].close;
+      const prices = quotes.filter(q => q !== null);
+      if (prices.length >= 2) {
+        const cur = prices[prices.length-1];
+        const prev = prices[prices.length-2];
+        const chg = (cur/prev - 1) * 100;
+        const div = document.createElement('div');
+        div.className = 'sector-item';
+        div.innerHTML = `<span class="name">${s.name} (${s.sym})</span><span class="pct">${getPct(chg)}</span>`;
+        sectorGrid.appendChild(div);
+      }
+    } catch(e) {
+      const div = document.createElement('div');
+      div.className = 'sector-item';
+      div.innerHTML = `<span class="name">${s.name} (${s.sym})</span><span class="pct" style="color:#888">--</span>`;
+      sectorGrid.appendChild(div);
+    }
+  }
+}
+
+fetchAll();
+</script>
+</body>
+</html>
