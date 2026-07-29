@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PCE Day Reaction Tracker — Jul 31, 2026</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --border: #30363d;
+    --text: #e6edf3;
+    --text-dim: #8b949e;
+    --green: #3fb950;
+    --red: #f85149;
+    --yellow: #d29922;
+    --blue: #58a6ff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 1.5rem; margin-bottom: 4px; }
+  .subtitle { color: var(--text-dim); font-size: 0.85rem; margin-bottom: 20px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+  @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .card h2 { font-size: 1rem; margin-bottom: 8px; }
+  .card .stat { display: flex; justify-content: space-between; padding: 4px 0; font-size: 0.85rem; border-bottom: 1px solid var(--border); }
+  .card .stat:last-child { border-bottom: none; }
+  .card .stat .label { color: var(--text-dim); }
+  .card .stat .value { font-weight: 600; }
+  .green { color: var(--green); }
+  .red { color: var(--red); }
+  .yellow { color: var(--yellow); }
+  .blue { color: var(--blue); }
+  .scenario-card {
+    border-left: 4px solid var(--border);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .scenario-card:hover {
+    transform: translateX(4px);
+  }
+  .scenario-card.active {
+    border-left-width: 6px;
+  }
+  .prob-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+  .checklist { list-style: none; padding: 0; }
+  .checklist li {
+    padding: 6px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist input[type="checkbox"] {
+    accent-color: var(--blue);
+    width: 16px; height: 16px;
+  }
+  .key-levels { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 8px; }
+  .key-level { 
+    background: rgba(48,54,61,0.3);
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  .action-box {
+    background: rgba(88,166,255,0.1);
+    border: 1px solid var(--blue);
+    border-radius: 6px;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 0.85rem;
+  }
+  .footer { 
+    color: var(--text-dim); 
+    font-size: 0.75rem; 
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid var(--border);
+    margin-top: 20px;
+  }
+  .pre-pce-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  .pre-pce-table th { text-align: left; color: var(--text-dim); padding: 6px 8px; border-bottom: 1px solid var(--border); }
+  .pre-pce-table td { padding: 6px 8px; border-bottom: 1px solid var(--border); }
+  .countdown { font-size: 2rem; font-weight: 700; text-align: center; padding: 10px; }
+  .countdown-label { text-align: center; color: var(--text-dim); font-size: 0.8rem; }
+</style>
+</head>
+<body>
+
+<h1>📊 PCE Day Reaction Tracker</h1>
+<div class="subtitle">July 31, 2026 · 08:30 AM ET (20:30 CST) · Generated 2026-07-29 00:47 UTC</div>
+
+<!-- Pre-PCE Market State -->
+<div class="card" style="margin-bottom: 16px;">
+  <h2>📌 Pre-PCE Market State (Last Close — Jul 28)</h2>
+  <table class="pre-pce-table">
+    <tr><th>Asset</th><th>Price</th><th>Scenario Target</th><th>Direction</th></tr>
+    <tr>
+      <td>SPY</td>
+      <td>$740.86</td>
+      <td>$720 (Hot) / $742 (Inline) / $755 (Cool)</td>
+      <td class="yellow">⚡ Neutral</td>
+    </tr>
+    <tr>
+      <td>NVDA</td>
+      <td>$197.01</td>
+      <td>$195 support / $220 resistance</td>
+      <td class="green">🟢 Holding</td>
+    </tr>
+    <tr>
+      <td>CRDO</td>
+      <td>$192.28</td>
+      <td>$175 (Hot) / $200 (Inline) / $220 (Cool)</td>
+      <td class="red">🔴 Critical</td>
+    </tr>
+    <tr>
+      <td>US10Y</td>
+      <td>4.60%</td>
+      <td>4.75% (Hot) / 4.60% (Inline) / 4.50% (Cool)</td>
+      <td class="yellow">⚡ Key Signal</td>
+    </tr>
+    <tr>
+      <td>VIX</td>
+      <td>18.21</td>
+      <td>22 (Hot) / 17.5 (Inline) / 16 (Cool)</td>
+      <td class="green">🟢 Calm</td>
+    </tr>
+    <tr>
+      <td>WTI</td>
+      <td>$79.13</td>
+      <td>$85 (Hot) / $79 (Inline) / $77 (Cool)</td>
+      <td class="red">🔴 Demand Destruction</td>
+    </tr>
+    <tr>
+      <td>BTC</td>
+      <td>$63,852</td>
+      <td>$60K (Hot) / $64K (Inline) / $66K (Cool)</td>
+      <td class="yellow">⚡ Range-bound</td>
+    </tr>
+    <tr>
+      <td>SOXX</td>
+      <td>491.46</td>
+      <td>Recovery / Stabilization</td>
+      <td class="red">🔴 Oversold</td>
+    </tr>
+  </table>
+</div>
+
+<!-- Scenario Cards -->
+<h2 style="font-size: 1.1rem; margin-bottom: 10px;">🎯 PCE Scenarios — Click to Activate</h2>
+<div class="grid" id="scenarioGrid">
+
+  <div class="card scenario-card " data-scenario="hot" onclick="activateScenario('hot')" style="border-left-color: #f85149;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+      <h2>🔥 Hot PCE</h2>
+      <span class="prob-badge" style="background: #f8514922; color: #f85149;">20%</span>
+    </div>
+    <div class="stat"><span class="label">SPY Target</span><span class="value">$720</span></div>
+    <div class="stat"><span class="label">US10Y Target</span><span class="value">4.75%</span></div>
+    <div class="stat"><span class="label">VIX Target</span><span class="value">22</span></div>
+    <div class="stat"><span class="label">CRDO Target</span><span class="value">$175</span></div>
+    <div class="stat"><span class="label">BTC Target</span><span class="value">$60,000</span></div>
+    <div class="action-box" style="border-color: #f85149;">
+      <strong>⚡ Action:</strong> Sell 50% longs → Buy SH/SPY puts → Add XLE → 30% cash
+    </div>
+  </div>
+
+  <div class="card scenario-card active" data-scenario="inline" onclick="activateScenario('inline')" style="border-left-color: #d29922;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+      <h2>📊 Inline PCE</h2>
+      <span class="prob-badge" style="background: #d2992222; color: #d29922;">55%</span>
+    </div>
+    <div class="stat"><span class="label">SPY Target</span><span class="value">$742</span></div>
+    <div class="stat"><span class="label">US10Y Target</span><span class="value">4.6%</span></div>
+    <div class="stat"><span class="label">VIX Target</span><span class="value">17.5</span></div>
+    <div class="stat"><span class="label">CRDO Target</span><span class="value">$200</span></div>
+    <div class="stat"><span class="label">BTC Target</span><span class="value">$64,000</span></div>
+    <div class="action-box" style="border-color: #d29922;">
+      <strong>⚡ Action:</strong> Wait 5min → Buy NVDA/MSFT on dip → Add CRDO above $200
+    </div>
+  </div>
+
+  <div class="card scenario-card " data-scenario="cool" onclick="activateScenario('cool')" style="border-left-color: #3fb950;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+      <h2>❄️ Cool PCE</h2>
+      <span class="prob-badge" style="background: #3fb95022; color: #3fb950;">25%</span>
+    </div>
+    <div class="stat"><span class="label">SPY Target</span><span class="value">$755</span></div>
+    <div class="stat"><span class="label">US10Y Target</span><span class="value">4.5%</span></div>
+    <div class="stat"><span class="label">VIX Target</span><span class="value">16</span></div>
+    <div class="stat"><span class="label">CRDO Target</span><span class="value">$220</span></div>
+    <div class="stat"><span class="label">BTC Target</span><span class="value">$66,000</span></div>
+    <div class="action-box" style="border-color: #3fb950;">
+      <strong>⚡ Action:</strong> Buy SPY/SOXX/CRDO → Buy TLT → Add BTC → Full risk-on
+    </div>
+  </div>
+
+</div>
+
+<!-- Pre-PCE Checklist -->
+<div class="card" style="margin-bottom: 16px;">
+  <h2>✅ Pre-PCE Checklist</h2>
+  <ul class="checklist">
+    <li><input type="checkbox" id="c1"> <label for="c1">Review all open positions — calculate max drawdown under Hot PCE</label></li>
+    <li><input type="checkbox" id="c2"> <label for="c2">Set stop-losses at invalidation levels (actual orders, not mental)</label></li>
+    <li><input type="checkbox" id="c3"> <label for="c3">Reduce weekend gap risk — size down by 50% if holding through Friday</label></li>
+    <li><input type="checkbox" id="c4"> <label for="c4">Have 15-25% cash ready for post-PCE deployment</label></li>
+    <li><input type="checkbox" id="c5"> <label for="c5">Review PCE Survival Calculator output</label></li>
+    <li><input type="checkbox" id="c6"> <label for="c6">Know your 3 scenarios — orders ready for each</label></li>
+  </ul>
+</div>
+
+<!-- Key Levels Summary -->
+<div class="card" style="margin-bottom: 16px;">
+  <h2>📈 Key Levels to Watch</h2>
+  <div class="key-levels">
+    <div class="key-level"><span>SPY Support</span><span class="red">$720</span></div>
+    <div class="key-level"><span>SPY Resistance</span><span class="green">$755</span></div>
+    <div class="key-level"><span>US10Y Support</span><span class="green">4.50%</span></div>
+    <div class="key-level"><span>US10Y Resistance</span><span class="red">4.75%</span></div>
+    <div class="key-level"><span>CRDO Support</span><span class="red">$175</span></div>
+    <div class="key-level"><span>CRDO Resistance</span><span class="green">$220</span></div>
+    <div class="key-level"><span>VIX Floor</span><span class="green">16</span></div>
+    <div class="key-level"><span>VIX Ceiling</span><span class="red">22</span></div>
+    <div class="key-level"><span>WTI Support</span><span class="red">$75</span></div>
+    <div class="key-level"><span>WTI Resistance</span><span class="red">$85</span></div>
+  </div>
+</div>
+
+<!-- Narrative Signal -->
+<div class="card" style="margin-bottom: 16px; border-left: 4px solid var(--blue);">
+  <h2>🧠 Macro Narrative</h2>
+  <p style="font-size: 0.85rem; line-height: 1.6; color: var(--text-dim);">
+    <strong>Dominant Signal:</strong> WTI crash (−14% in 5d) kills stagflation narrative. 
+    The bond market is pricing cool PCE (US10Y 4.60% → 4.50% trajectory). 
+    The semi sector selloff is a <strong>storage/equipment cycle rotation</strong>, 
+    not an AI compute thesis failure (NVDA holding $195 confirms this).
+    <br><br>
+    <strong>Key Asymmetry:</strong> If PCE is cool, the market has room to rally significantly 
+    (SPY $750+). If PCE is hot, the selloff is contained by the WTI crash narrative 
+    (disinflationary force). The asymmetric bet is <strong>long risk assets</strong>.
+  </p>
+</div>
+
+<div class="footer">
+  SMA-2026 Autonomous Node · PCE Day Reaction Tracker v1.0 · Not financial advice<br>
+  Open in browser, click scenario cards to activate, use checklist to track execution
+</div>
+
+<script>
+function activateScenario(key) {
+  document.querySelectorAll('.scenario-card').forEach(c => c.classList.remove('active'));
+  document.querySelector(`[data-scenario="${key}"]`).classList.add('active');
+}
+
+// Auto-select default (inline)
+activateScenario('inline');
+</script>
+
+</body>
+</html>
