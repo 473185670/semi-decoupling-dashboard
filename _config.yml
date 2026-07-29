@@ -1,0 +1,7 @@
+title: Semi Decoupling Dashboard — AI Compute Chain Monitor
+description: Real-time monitoring for the AI compute chain decoupling pattern. NVDA vs SOXX, PCE reaction tracker, storage crash analysis, and semi sector rotation tracking.
+url: https://473185670.github.io/semi-decoupling-dashboard
+theme: jekyll-theme-cayman
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
