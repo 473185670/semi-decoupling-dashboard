@@ -142,149 +142,141 @@
 <script>
 // ─── Data Store (pre-populated from Python) ─────────────────────────────────
 const DATA = {
-  "timestamp": "2026-07-29 05:49:46 UTC",
+  "timestamp": "2026-07-29 21:53:33 UTC",
   "tickers": {
     "NVDA": {
-      "price": 197.01,
-      "chg_1d": 0.25,
-      "chg_5d": -4.96
+      "price": 190.01,
+      "chg_1d": -3.55,
+      "chg_5d": -10.4
     },
     "AVGO": {
-      "price": 380.91,
-      "chg_1d": -0.6,
-      "chg_5d": -1.45
+      "price": 370.32,
+      "chg_1d": -2.78,
+      "chg_5d": -6.68
     },
     "MRVL": {
-      "price": 174.47,
-      "chg_1d": -7.77,
-      "chg_5d": -16.1
+      "price": 163.4,
+      "chg_1d": -6.34,
+      "chg_5d": -22.56
     },
     "AMAT": {
-      "price": 476.46,
-      "chg_1d": -7.82,
-      "chg_5d": -15.6
+      "price": 436.45,
+      "chg_1d": -8.4,
+      "chg_5d": -21.21
     },
     "LRCX": {
-      "price": 269.61,
-      "chg_1d": -7.54,
-      "chg_5d": -16.27
+      "price": 252.35,
+      "chg_1d": -6.4,
+      "chg_5d": -20.97
     },
     "KLAC": {
-      "price": 190.8,
-      "chg_1d": -6.18,
-      "chg_5d": -12.3
+      "price": 170.19,
+      "chg_1d": -10.8,
+      "chg_5d": -20.73
     },
     "SNDK": {
-      "price": 1096.1,
-      "chg_1d": -14.25,
-      "chg_5d": -31.04
+      "price": 1015.89,
+      "chg_1d": -7.32,
+      "chg_5d": -36.48
     },
     "WDC": {
-      "price": 463.51,
-      "chg_1d": -6.91,
-      "chg_5d": -15.48
+      "price": 462.04,
+      "chg_1d": -0.32,
+      "chg_5d": -17.0
     },
     "MU": {
-      "price": 820.53,
-      "chg_1d": -8.85,
-      "chg_5d": -15.48
+      "price": 739.0,
+      "chg_1d": -9.94,
+      "chg_5d": -22.98
     },
     "STX": {
-      "price": 747.3,
-      "chg_1d": -8.53,
-      "chg_5d": -16.21
+      "price": 764.43,
+      "chg_1d": 2.29,
+      "chg_5d": -15.82
     },
     "CRDO": {
-      "price": 192.28,
-      "chg_1d": -7.62,
-      "chg_5d": -14.11
+      "price": 177.45,
+      "chg_1d": -7.71,
+      "chg_5d": -22.26
     },
     "SOXX": {
-      "price": 491.46,
-      "chg_1d": -4.8,
-      "chg_5d": -11.08
+      "price": 465.0,
+      "chg_1d": -5.38,
+      "chg_5d": -16.29
     },
     "SPY": {
-      "price": 740.86,
-      "chg_1d": 0.24,
-      "chg_5d": -0.99
+      "price": 729.46,
+      "chg_1d": -1.54,
+      "chg_5d": -2.4
     },
     "QQQ": {
-      "price": 675.49,
-      "chg_1d": -0.97,
-      "chg_5d": -4.72
+      "price": 661.73,
+      "chg_1d": -2.04,
+      "chg_5d": -6.18
     },
     "US10Y": {
-      "price": 4.6,
-      "chg_1d": -0.8,
-      "chg_5d": -0.52
+      "price": 4.62,
+      "chg_1d": 0.39,
+      "chg_5d": -0.75
     },
     "VIX": {
-      "price": 18.21,
-      "chg_1d": -2.46,
-      "chg_5d": 6.8
+      "price": 20.66,
+      "chg_1d": 13.45,
+      "chg_5d": 24.16
     },
     "WTI": {
-      "price": 82.0,
-      "chg_1d": 3.46,
-      "chg_5d": -11.05
+      "price": 84.6,
+      "chg_1d": 6.74,
+      "chg_5d": -8.23
     },
     "TLT": {
-      "price": 84.24,
-      "chg_1d": 0.59,
-      "chg_5d": 0.69
+      "price": 82.85,
+      "chg_1d": -1.65,
+      "chg_5d": -0.71
     },
     "GLD": {
-      "price": 369.37,
-      "chg_1d": -1.4,
-      "chg_5d": -1.45
+      "price": 371.08,
+      "chg_1d": 0.46,
+      "chg_5d": -2.12
     },
     "BTC": {
-      "price": 63952.97,
-      "chg_1d": 0.36,
-      "chg_5d": -0.23
+      "price": 63684.63,
+      "chg_1d": -0.29,
+      "chg_5d": -0.65
     }
   },
   "analysis": {
-    "decoupling_score": 7,
+    "decoupling_score": 5,
     "patterns": [
-      {
-        "type": "decoupling",
-        "severity": "STRONG",
-        "description": "NVDA +0.25% vs SOXX -4.80% (spread: +5.05%)",
-        "implication": "AI compute thesis intact. Rotation out of semi equipment/storage into compute. Buy signal for NVDA, AVGO."
-      },
       {
         "type": "compute_vs_equip",
         "severity": "MODERATE",
-        "description": "Compute (avg -2.71%) vs Equipment (avg -7.18%) \u2014 spread +4.47%",
+        "description": "Compute (avg -4.22%) vs Equipment (avg -8.53%) \u2014 spread +4.31%",
         "implication": "Equipment cycle rolling over. Compute cycle intact. This is the defining rotation of H2 2026."
       },
       {
         "type": "storage_crash",
-        "severity": "EXTREME",
-        "description": "Storage/memory names avg -9.63%",
+        "severity": "STRONG",
+        "description": "Storage/memory names avg -3.82%",
         "implication": "Memory cycle turning. HBM overbuild risk. MU/SNDK/WDC are canaries in the coal mine."
       },
       {
         "type": "interconnect_liquidation",
         "severity": "STRONG",
-        "description": "CRDO -7.62% \u2014 forced liquidation cascade",
+        "description": "CRDO -7.71% \u2014 forced liquidation cascade",
         "implication": "CRDO is the highest-beta semi name. Watch for spread normalization as entry signal."
       }
     ],
-    "alerts": [
-      "\ud83d\udd34 DECOUPLING (STRONG): NVDA +0.25% vs SOXX -4.80%"
-    ],
-    "regime": "\ud83d\udd34 EXTREME DECOUPLING \u2014 AI Compute Thesis Intact",
-    "nvda_soxx_spread": 5.05,
-    "nvda_spy_rel": 0.01,
+    "alerts": [],
+    "regime": "\ud83d\udfe1 STRONG DECOUPLING \u2014 Rotation in Progress",
+    "nvda_soxx_spread": 1.83,
+    "nvda_spy_rel": -2.01,
     "compute_vs_equip": {
-      "avg_compute": -2.71,
-      "avg_equip": -7.18,
-      "spread": 4.47
+      "avg_compute": -4.22,
+      "avg_equip": -8.53,
+      "spread": 4.31
     },
-    "avg_storage": -9.63
+    "avg_storage": -3.82
   }
 };
 
