@@ -3,450 +3,130 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Semi Decoupling Dashboard — Live Monitor</title>
+<title>Semi Decoupling Dashboard - PCE Day PRE-PCE</title>
 <style>
-  :root {
-    --bg: #0d1117;
-    --card: #161b22;
-    --border: #30363d;
-    --text: #e6edf3;
-    --text-dim: #8b949e;
-    --green: #3fb950;
-    --red: #f85149;
-    --yellow: #d29922;
-    --blue: #58a6ff;
-    --purple: #bc8cff;
-  }
+  :root { --bg: #0d1117; --card: #161b22; --border: #30363d; --text: #e6edf3; --text-dim: #8b949e; --green: #3fb950; --red: #f85149; --yellow: #d29922; --blue: #58a6ff; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); padding: 20px; max-width: 1200px; margin: 0 auto; }
   h1 { font-size: 1.5rem; margin-bottom: 4px; }
   .subtitle { color: var(--text-dim); font-size: 0.85rem; margin-bottom: 20px; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px; }
-  .card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 14px 16px;
-  }
-  .card .label { font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.5px; }
-  .card .value { font-size: 1.4rem; font-weight: 600; margin-top: 4px; }
-  .card .sub { font-size: 0.8rem; margin-top: 2px; }
-  .positive { color: var(--green); }
-  .negative { color: var(--red); }
-  .neutral { color: var(--yellow); }
-  .badge {
-    display: inline-block; padding: 2px 8px; border-radius: 4px;
-    font-size: 0.75rem; font-weight: 600;
-  }
-  .badge-extreme { background: #f8514918; color: var(--red); border: 1px solid #f8514933; }
-  .badge-strong { background: #d2992218; color: var(--yellow); border: 1px solid #d2992233; }
-  .badge-moderate { background: #58a6ff18; color: var(--blue); border: 1px solid #58a6ff33; }
-  .badge-none { background: #8b949e18; color: var(--text-dim); border: 1px solid #8b949e33; }
-  table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
-  th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.85rem; }
-  th { color: var(--text-dim); font-weight: 500; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.5px; }
-  .group-header { background: var(--card); font-weight: 600; }
-  .group-header td { padding-top: 12px; }
-  .section-title { font-size: 0.9rem; font-weight: 600; margin: 20px 0 10px; color: var(--text-dim); }
-  .alert-box {
-    background: var(--card); border: 1px solid var(--border); border-radius: 8px;
-    padding: 14px 16px; margin-bottom: 12px; border-left: 3px solid var(--yellow);
-  }
-  .alert-box.critical { border-left-color: var(--red); }
-  .alert-box.info { border-left-color: var(--blue); }
-  .alert-box .alert-title { font-weight: 600; font-size: 0.9rem; }
-  .alert-box .alert-desc { font-size: 0.8rem; color: var(--text-dim); margin-top: 4px; }
-  .footer { text-align: center; color: var(--text-dim); font-size: 0.75rem; margin-top: 30px; padding: 20px 0; border-top: 1px solid var(--border); }
-  .progress-bar { width: 100%; height: 8px; background: var(--border); border-radius: 4px; margin-top: 8px; overflow: hidden; }
-  .progress-fill { height: 100%; border-radius: 4px; transition: width 0.5s; }
-  .last-updated { color: var(--text-dim); font-size: 0.75rem; margin-bottom: 20px; }
-  @media (max-width: 600px) {
-    .grid { grid-template-columns: 1fr 1fr; }
-    body { padding: 12px; }
-  }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+  @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+  .card h2 { font-size: 1rem; margin-bottom: 8px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  th { text-align: left; color: var(--text-dim); padding: 6px 8px; border-bottom: 1px solid var(--border); font-weight: 500; }
+  td { padding: 6px 8px; border-bottom: 1px solid var(--border); }
+  .green { color: var(--green); }
+  .red { color: var(--red); }
+  .yellow { color: var(--yellow); }
+  .score { font-size: 2.5rem; font-weight: 700; text-align: center; }
+  .score-label { text-align: center; color: var(--text-dim); font-size: 0.8rem; }
+  .footer { color: var(--text-dim); font-size: 0.75rem; text-align: center; padding: 20px 0; border-top: 1px solid var(--border); margin-top: 20px; }
+  .alert { border-left: 4px solid var(--green); background: rgba(63,185,80,0.1); padding: 10px; border-radius: 4px; margin-bottom: 12px; font-size: 0.85rem; }
+  .alert-yellow { border-left: 4px solid var(--yellow); background: rgba(210,153,34,0.1); padding: 10px; border-radius: 4px; margin-bottom: 12px; font-size: 0.85rem; }
 </style>
 </head>
 <body>
+<h1>📡 Semi Decoupling Dashboard — PCE Day PRE-PCE</h1>
+<div class="subtitle">Updated: 2026-07-31 14:04 CST | PCE Release: TODAY 08:30 ET</div>
 
-<h1>🔬 Semi Decoupling Dashboard</h1>
-<div class="subtitle">Real-time NVDA vs Semi Sector Decoupling Monitor — AI Compute Thesis Tracker</div>
-<div class="last-updated" id="lastUpdated">Loading data...</div>
-
-<!-- Key Metrics -->
-<div class="grid" id="keyMetrics">
-  <div class="card"><div class="label">Decoupling Score</div><div class="value" id="score">—</div><div class="sub" id="scoreLabel"></div></div>
-  <div class="card"><div class="label">NVDA vs SOXX Spread</div><div class="value" id="spread">—</div><div class="sub" id="spreadLabel"></div></div>
-  <div class="card"><div class="label">Regime</div><div class="value" id="regime" style="font-size:1rem">—</div><div class="sub"></div></div>
-  <div class="card"><div class="label">NVDA vs SPY</div><div class="value" id="nvdaSpy">—</div><div class="sub" id="nvdaSpyLabel"></div></div>
-  <div class="card"><div class="label">Compute vs Equipment</div><div class="value" id="compEquip">—</div><div class="sub" id="compEquipLabel"></div></div>
-  <div class="card"><div class="label">Storage Avg</div><div class="value" id="storage">—</div><div class="sub" id="storageLabel"></div></div>
+<div class="alert">
+<strong>🟢 PRE-PCE SQUEEZE INTACT:</strong> SOXX +8.50%, LRCX +18.0%, MU +18.4%, CRDO +13.3%. Pre-PCE squeeze intact. DXY 100.2 — breaking below 100 is massive risk-on signal. US10Y 4.66% — the last holdout pricing hot PCE.
 </div>
 
-<!-- Score Progress Bar -->
-<div class="card" style="margin-bottom: 20px;">
-  <div class="label">Decoupling Confidence</div>
-  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%; background: var(--yellow);"></div></div>
-</div>
-
-<!-- Watchlist Table -->
-<div class="section-title">📊 Sector Watchlist</div>
-<table id="watchlist">
-  <thead>
-    <tr><th>Group</th><th>Ticker</th><th>Price</th><th>Change</th><th>5d Change</th><th>Signal</th></tr>
-  </thead>
-  <tbody id="tableBody">
-    <tr><td colspan="6" style="text-align:center; color:var(--text-dim);">Loading...</td></tr>
-  </tbody>
-</table>
-
-<!-- Alerts -->
-<div class="section-title">🚨 Active Signals</div>
-<div id="alertsContainer">
-  <div style="color:var(--text-dim); font-size:0.85rem;">Loading signals...</div>
-</div>
-
-<!-- Pattern Analysis -->
-<div class="section-title">🧠 Pattern Analysis</div>
-<div id="patternsContainer">
-  <div style="color:var(--text-dim); font-size:0.85rem;">Loading analysis...</div>
-</div>
-
-<!-- Quick Reference -->
-<div class="section-title">📖 How to Use This Dashboard</div>
-<div class="card" style="margin-bottom: 20px;">
-  <div style="font-size: 0.85rem; line-height: 1.6; color: var(--text-dim);">
-    <strong style="color: var(--text);">The Decoupling Trade:</strong> When NVDA holds/rises while semi equipment/storage crashes, it signals the AI compute thesis is intact — the selloff is a storage/equipment cycle rotation, not a broad AI unwind.
-    <br><br>
-    <strong style="color: var(--text);">Key Levels:</strong><br>
-    • <strong>Score 7-10</strong> 🔴 Extreme Decoupling — Buy the compute dip<br>
-    • <strong>Score 4-6</strong> 🟡 Strong Decoupling — Rotation in progress<br>
-    • <strong>Score 2-3</strong> 🟢 Moderate Decoupling — Sector differentiation<br>
-    • <strong>Score 0-1</strong> ⚪ No Decoupling — Broad sector symmetry
-    <br><br>
-    <strong style="color: var(--text);">30-Day Survival Rule:</strong> If the decoupling score drops below 2 for 3 consecutive days, the AI compute thesis is under threat. Reduce position size by 50%.
+<div class="grid">
+  <div class="card">
+    <h2>🟢 Semi Sector (Squeeze)</h2>
+    <table>
+      <tr><th>Asset</th><th>Price</th><th>Change</th><th>Signal</th></tr>
+      <tr><td>LRCX</td><td>$297.72</td><td class="green">+17.98%</td><td class="green">🚀</td></tr>
+      <tr><td>MU</td><td>$874.66</td><td class="green">+18.36%</td><td class="green">🚀</td></tr>
+      <tr><td>AMAT</td><td>$501.77</td><td class="green">+14.97%</td><td class="green">🚀</td></tr>
+      <tr><td>CRDO</td><td>$201.08</td><td class="green">+13.32%</td><td class="green">🚀</td></tr>
+      <tr><td>KLAC</td><td>$180.33</td><td class="green">+5.96%</td><td class="green">🚀</td></tr>
+      <tr><td>AMD</td><td>$485.39</td><td class="green">+13.00%</td><td class="green">🚀</td></tr>
+      <tr><td>MRVL</td><td>$183.30</td><td class="green">+12.18%</td><td class="green">🚀</td></tr>
+      <tr><td>SOXX</td><td>$504.53</td><td class="green">+8.50%</td><td class="green">🚀</td></tr>
+      <tr><td>NVDA</td><td>$195.04</td><td class="green">+2.65%</td><td class="green">✅</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h2>📊 Macro & Rates</h2>
+    <table>
+      <tr><th>Asset</th><th>Price</th><th>Change</th><th>Signal</th></tr>
+      <tr><td>SPY</td><td>$741.69</td><td class="green">+1.68%</td><td class="green">✅</td></tr>
+      <tr><td>QQQ</td><td>$683.55</td><td class="green">+3.30%</td><td class="green">✅</td></tr>
+      <tr><td>VIX</td><td>17.09</td><td class="red">-17.28%</td><td class="green">✅</td></tr>
+      <tr><td>US10Y</td><td>4.660%</td><td class="green">+0.89%</td><td class="yellow">⚠️</td></tr>
+      <tr><td>DXY</td><td>100.24</td><td class="green">+0.22%</td><td class="green">✅</td></tr>
+      <tr><td>WTI</td><td>$81.62</td><td class="red">-2.36%</td><td class="green">✅</td></tr>
+    </table>
+    <div style="margin-top:8px;font-size:0.8rem;color:var(--yellow);">US10Y at 4.660% — the last holdout pricing hot PCE. DXY 100.24 — BELOW 100 = BULLISH</div>
+  </div>
+  <div class="card">
+    <h2>🛡️ Safe Haven / Alt</h2>
+    <table>
+      <tr><th>Asset</th><th>Price</th><th>Change</th><th>Signal</th></tr>
+      <tr><td>GLD</td><td>$377.16</td><td class="green">+1.64%</td><td class="green">✅</td></tr>
+      <tr><td>GOLD</td><td>$4133.50</td><td class="green">+0.81%</td><td class="green">✅</td></tr>
+      <tr><td>TLT</td><td>$82.80</td><td class="red">-0.06%</td><td class="red">⚠️</td></tr>
+      <tr><td>BTC</td><td>$64277</td><td class="green">+0.58%</td><td class="green">✅</td></tr>
+      <tr><td>XLE</td><td>$58.96</td><td class="green">+0.53%</td><td class="green">✅</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h2>🏢 Mega-Cap Tech</h2>
+    <table>
+      <tr><th>Asset</th><th>Price</th><th>Change</th><th>Signal</th></tr>
+      <tr><td>MSFT</td><td>$451.10</td><td class="green">+15.51%</td><td class="green">🚀</td></tr>
+      <tr><td>AMZN</td><td>$238.65</td><td class="green">+5.29%</td><td class="green">✅</td></tr>
+      <tr><td>GOOGL</td><td>$333.65</td><td class="red">-0.91%</td><td class="yellow">⚠️</td></tr>
+      <tr><td>META</td><td>$539.03</td><td class="red">-7.95%</td><td class="red">🚨</td></tr>
+      <tr><td>AAPL</td><td>$331.40</td><td class="red">-2.01%</td><td class="yellow">⚠️</td></tr>
+      <tr><td>AVGO</td><td>$384.68</td><td class="green">+3.88%</td><td class="green">✅</td></tr>
+    </table>
   </div>
 </div>
 
-<div class="footer">
-  Semi Decoupling Dashboard v1.0 — Generated by SMA-2026 Autonomous Node<br>
-  Data refreshes when you reload the page. Not financial advice.
+<div class="grid">
+  <div class="card">
+    <h2>🎯 Decoupling Score</h2>
+    <div class="score" style="color: #3fb950">7.3</div>
+    <div class="score-label">/ 10 (NVDA vs SOXX divergence)</div>
+    <div style="margin-top: 12px; font-size: 0.85rem;">
+      NVDA +2.65% vs SOXX +8.50%<br>
+      Diff: 5.85pp — Decoupling <strong>flipped</strong> (NVDA underperforming)
+    </div>
+    <div style="margin-top: 8px; font-size: 0.8rem; color: var(--yellow);">
+      NVDA lagging semi sector — this is a catch-up trade setup. If PCE is cool, NVDA $200+ is in play.
+    </div>
+  </div>
+  <div class="card">
+    <h2>🧠 Pattern Status</h2>
+    <table>
+      <tr><td>P16: CRDO Interconnect Decoupling</td><td class="green">RECOVERING ($201.08)</td></tr>
+      <tr><td>P19: Bid-Ask Spread Signal</td><td class="green">NORMALIZED</td></tr>
+      <tr><td>P20: CRDO $200 Invalidation</td><td class="yellow">TESTING ($201.08)</td></tr>
+      <tr><td>P18: De-Stagflation Trade</td><td class="green">ACTIVE</td></tr>
+      <tr><td>PCE Asymmetry</td><td class="green">UPSIDE HEAVY (80%)</td></tr>
+      <tr><td>DXY ≥ 100</td><td class="red">NEUTRAL</td></tr>
+    </table>
+  </div>
 </div>
 
-<script>
-// ─── Data Store (pre-populated from Python) ─────────────────────────────────
-const DATA = {
-  "timestamp": "2026-07-29 21:53:33 UTC",
-  "tickers": {
-    "NVDA": {
-      "price": 190.01,
-      "chg_1d": -3.55,
-      "chg_5d": -10.4
-    },
-    "AVGO": {
-      "price": 370.32,
-      "chg_1d": -2.78,
-      "chg_5d": -6.68
-    },
-    "MRVL": {
-      "price": 163.4,
-      "chg_1d": -6.34,
-      "chg_5d": -22.56
-    },
-    "AMAT": {
-      "price": 436.45,
-      "chg_1d": -8.4,
-      "chg_5d": -21.21
-    },
-    "LRCX": {
-      "price": 252.35,
-      "chg_1d": -6.4,
-      "chg_5d": -20.97
-    },
-    "KLAC": {
-      "price": 170.19,
-      "chg_1d": -10.8,
-      "chg_5d": -20.73
-    },
-    "SNDK": {
-      "price": 1015.89,
-      "chg_1d": -7.32,
-      "chg_5d": -36.48
-    },
-    "WDC": {
-      "price": 462.04,
-      "chg_1d": -0.32,
-      "chg_5d": -17.0
-    },
-    "MU": {
-      "price": 739.0,
-      "chg_1d": -9.94,
-      "chg_5d": -22.98
-    },
-    "STX": {
-      "price": 764.43,
-      "chg_1d": 2.29,
-      "chg_5d": -15.82
-    },
-    "CRDO": {
-      "price": 177.45,
-      "chg_1d": -7.71,
-      "chg_5d": -22.26
-    },
-    "SOXX": {
-      "price": 465.0,
-      "chg_1d": -5.38,
-      "chg_5d": -16.29
-    },
-    "SPY": {
-      "price": 729.46,
-      "chg_1d": -1.54,
-      "chg_5d": -2.4
-    },
-    "QQQ": {
-      "price": 661.73,
-      "chg_1d": -2.04,
-      "chg_5d": -6.18
-    },
-    "US10Y": {
-      "price": 4.62,
-      "chg_1d": 0.39,
-      "chg_5d": -0.75
-    },
-    "VIX": {
-      "price": 20.66,
-      "chg_1d": 13.45,
-      "chg_5d": 24.16
-    },
-    "WTI": {
-      "price": 84.6,
-      "chg_1d": 6.74,
-      "chg_5d": -8.23
-    },
-    "TLT": {
-      "price": 82.85,
-      "chg_1d": -1.65,
-      "chg_5d": -0.71
-    },
-    "GLD": {
-      "price": 371.08,
-      "chg_1d": 0.46,
-      "chg_5d": -2.12
-    },
-    "BTC": {
-      "price": 63684.63,
-      "chg_1d": -0.29,
-      "chg_5d": -0.65
-    }
-  },
-  "analysis": {
-    "decoupling_score": 5,
-    "patterns": [
-      {
-        "type": "compute_vs_equip",
-        "severity": "MODERATE",
-        "description": "Compute (avg -4.22%) vs Equipment (avg -8.53%) \u2014 spread +4.31%",
-        "implication": "Equipment cycle rolling over. Compute cycle intact. This is the defining rotation of H2 2026."
-      },
-      {
-        "type": "storage_crash",
-        "severity": "STRONG",
-        "description": "Storage/memory names avg -3.82%",
-        "implication": "Memory cycle turning. HBM overbuild risk. MU/SNDK/WDC are canaries in the coal mine."
-      },
-      {
-        "type": "interconnect_liquidation",
-        "severity": "STRONG",
-        "description": "CRDO -7.71% \u2014 forced liquidation cascade",
-        "implication": "CRDO is the highest-beta semi name. Watch for spread normalization as entry signal."
-      }
-    ],
-    "alerts": [],
-    "regime": "\ud83d\udfe1 STRONG DECOUPLING \u2014 Rotation in Progress",
-    "nvda_soxx_spread": 1.83,
-    "nvda_spy_rel": -2.01,
-    "compute_vs_equip": {
-      "avg_compute": -4.22,
-      "avg_equip": -8.53,
-      "spread": 4.31
-    },
-    "avg_storage": -3.82
-  }
-};
+<div class="alert-yellow">
+<strong>⚠️ PCE Day Watchlist (Jul 31):</strong>
+<br>• 08:30 ET — PCE Headline & Core MoM/YoY
+<br>• 08:30 ET — Personal Income & Spending
+<br>• 08:30 ET — Employment Cost Index (ECI)
+<br>• 10:00 ET — Michigan Consumer Sentiment (Final)
+<br>• Key Level: US10Y < 4.50% = Bullish. US10Y > 4.75% = Bearish.
+<br>• DXY 99.87 — Below 100 confirms USD weakness = risk-on catalyst
+</div>
 
-// ─── Dashboard Logic ────────────────────────────────────────────────────────
-function formatPct(v) {
-  if (v === null || v === undefined) return '—';
-  const s = v >= 0 ? '+' : '';
-  return `${s}${v.toFixed(2)}%`;
-}
-
-function colorClass(v) {
-  if (v === null || v === undefined) return '';
-  return v > 0 ? 'positive' : v < 0 ? 'negative' : 'neutral';
-}
-
-function formatPrice(v) {
-  if (v === null || v === undefined) return '—';
-  if (v >= 1000) return v.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
-  if (v >= 100) return v.toFixed(2);
-  if (v >= 10) return v.toFixed(2);
-  if (v >= 1) return v.toFixed(2);
-  return v.toFixed(2);
-}
-
-function getSignal(chg, group) {
-  if (chg === null || chg === undefined) return '—';
-  if (group === 'Compute') {
-    if (chg > 0) return '✅ Holding';
-    if (chg > -1) return '⚠️ Marginal';
-    return '🔴 Weak';
-  }
-  if (group === 'Equipment' || group === 'Storage') {
-    if (chg < -5) return '🔴 Crash';
-    if (chg < -3) return '🟡 Selloff';
-    if (chg < 0) return '⚪ Weak';
-    return '🟢 Stable';
-  }
-  if (group === 'Interconnect') {
-    if (chg < -5) return '🔴 Liquidation';
-    if (chg < -3) return '🟡 Pressure';
-    return '⚪ Normal';
-  }
-  return '—';
-}
-
-function renderDashboard(data) {
-  if (!data || !data.tickers) {
-    document.getElementById('lastUpdated').textContent = 'No data available. Load sample data below.';
-    return;
-  }
-
-  const d = data.tickers;
-  const analysis = data.analysis || {};
-  const ts = data.timestamp || '—';
-  document.getElementById('lastUpdated').textContent = `Last Updated: ${ts}`;
-
-  // Key metrics
-  const score = analysis.decoupling_score || 0;
-  document.getElementById('score').textContent = `${score}/10`;
-  document.getElementById('score').className = score >= 7 ? 'value negative' : score >= 4 ? 'value neutral' : 'value';
-  document.getElementById('scoreLabel').textContent = score >= 7 ? 'Extreme Decoupling' : score >= 4 ? 'Strong Signal' : score >= 2 ? 'Moderate' : 'No Signal';
-
-  const spread = analysis.nvda_soxx_spread;
-  document.getElementById('spread').textContent = spread ? formatPct(spread) : '—';
-  document.getElementById('spread').className = spread >= 6 ? 'value negative' : spread >= 3 ? 'value neutral' : 'value';
-  document.getElementById('spreadLabel').textContent = spread >= 6 ? 'Extreme' : spread >= 3 ? 'Significant' : 'Normal';
-
-  document.getElementById('regime').textContent = analysis.regime || '—';
-  document.getElementById('regime').className = score >= 7 ? 'value negative' : score >= 4 ? 'value neutral' : 'value';
-  document.getElementById('regime').style.fontSize = score >= 7 ? '0.9rem' : '1rem';
-
-  const nvdaSpy = analysis.nvda_spy_rel;
-  document.getElementById('nvdaSpy').textContent = nvdaSpy ? formatPct(nvdaSpy) : '—';
-  document.getElementById('nvdaSpy').className = nvdaSpy > 2 ? 'value positive' : 'value';
-  document.getElementById('nvdaSpyLabel').textContent = nvdaSpy > 4 ? 'Strong Outperformance' : nvdaSpy > 2 ? 'Outperforming' : 'In-line';
-
-  const ce = analysis.compute_vs_equip;
-  document.getElementById('compEquip').textContent = ce ? formatPct(ce.spread) : '—';
-  document.getElementById('compEquip').className = ce && ce.spread > 5 ? 'value positive' : 'value';
-  document.getElementById('compEquipLabel').textContent = ce ? `C:${formatPct(ce.avg_compute)} | E:${formatPct(ce.avg_equip)}` : '—';
-
-  const storage = analysis.avg_storage;
-  document.getElementById('storage').textContent = storage !== undefined ? formatPct(storage) : '—';
-  document.getElementById('storage').className = storage < -5 ? 'value negative' : 'value';
-  document.getElementById('storageLabel').textContent = storage < -8 ? 'Crash Regime' : storage < -3 ? 'Selloff' : 'Stable';
-
-  // Progress bar
-  const pct = Math.min(score / 10 * 100, 100);
-  const fill = document.getElementById('progressFill');
-  fill.style.width = pct + '%';
-  fill.style.background = score >= 7 ? 'var(--red)' : score >= 4 ? 'var(--yellow)' : 'var(--blue)';
-
-  // Table
-  const groups = [
-    { name: '📈 Compute', tickers: ['NVDA','AVGO','MRVL'] },
-    { name: '🔧 Equipment', tickers: ['AMAT','LRCX','KLAC'] },
-    { name: '💾 Storage', tickers: ['SNDK','WDC','MU','STX'] },
-    { name: '🔗 Interconnect', tickers: ['CRDO'] },
-    { name: '📊 Indices', tickers: ['SOXX','SPY','QQQ'] },
-  ];
-
-  let html = '';
-  for (const group of groups) {
-    html += `<tr class="group-header"><td colspan="6">${group.name}</td></tr>`;
-    for (const ticker of group.tickers) {
-      const t = d[ticker];
-      if (!t) {
-        html += `<tr><td></td><td>${ticker}</td><td colspan="4" style="color:var(--text-dim)">No data</td></tr>`;
-        continue;
-      }
-      const price = formatPrice(t.price);
-      const chg = t.chg_1d !== undefined ? t.chg_1d : t.change_pct;
-      const chg5d = t.chg_5d;
-      const signal = getSignal(chg, group.name.replace(/^[^\s]+\s/, ''));
-      const chgStr = chg !== undefined ? formatPct(chg) : '—';
-      const chg5dStr = chg5d !== undefined ? formatPct(chg5d) : '—';
-      html += `<tr>
-        <td></td>
-        <td><strong>${ticker}</strong></td>
-        <td>${price}</td>
-        <td class="${colorClass(chg)}">${chgStr}</td>
-        <td class="${colorClass(chg5d)}">${chg5dStr}</td>
-        <td>${signal}</td>
-      </tr>`;
-    }
-  }
-  document.getElementById('tableBody').innerHTML = html;
-
-  // Alerts
-  const alerts = analysis.alerts || [];
-  const alertsHtml = alerts.length > 0
-    ? alerts.map(a => `<div class="alert-box critical"><div class="alert-title">🔴 Alert</div><div class="alert-desc">${a}</div></div>`).join('')
-    : '<div style="color:var(--text-dim); font-size:0.85rem;">No active alerts. Market in normal regime.</div>';
-  document.getElementById('alertsContainer').innerHTML = alertsHtml;
-
-  // Patterns
-  const patterns = analysis.patterns || [];
-  const patternsHtml = patterns.length > 0
-    ? patterns.map(p => {
-        const cls = p.severity === 'EXTREME' ? 'critical' : p.severity === 'STRONG' ? '' : 'info';
-        const badge = p.severity === 'EXTREME' ? 'badge-extreme' : p.severity === 'STRONG' ? 'badge-strong' : 'badge-moderate';
-        return `<div class="alert-box ${cls}">
-          <div class="alert-title"><span class="badge ${badge}">${p.severity}</span> ${p.type.toUpperCase()}</div>
-          <div class="alert-desc">${p.description}</div>
-          <div class="alert-desc" style="margin-top:4px; color:var(--text);">→ ${p.implication}</div>
-        </div>`;
-      }).join('')
-    : '<div style="color:var(--text-dim); font-size:0.85rem;">No patterns detected.</div>';
-  document.getElementById('patternsContainer').innerHTML = patternsHtml;
-}
-
-// ─── Load Sample Data ───────────────────────────────────────────────────────
-async function loadLiveData() {
-  try {
-    const resp = await fetch('/api/data');
-    if (resp.ok) {
-      const data = await resp.json();
-      renderDashboard(data);
-      return;
-    }
-  } catch(e) {}
-  // Fallback: use embedded data
-  if (DATA) renderDashboard(DATA);
-  else {
-    document.getElementById('lastUpdated').textContent = 'Open this file via a local server for live data, or embed data manually.';
-    document.getElementById('tableBody').innerHTML = '<tr><td colspan="6" style="text-align:center; color:var(--text-dim);">Load data via API or inject JSON into DATA variable</td></tr>';
-  }
-}
-
-loadLiveData();
-</script>
+<div class="footer">
+SMA-2026 Autonomous Node · PCE Day PRE-PCE · Run 115 · Data: yfinance live
+</div>
 </body>
 </html>

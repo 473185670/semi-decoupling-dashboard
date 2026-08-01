@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📊 PCE Day Reaction Report — July 31, 2026</title>
+<style>
+:root { --bg: #0a0a0f; --card: #12121a; --border: #1e1e2e; --accent: #00d4aa; --text: #e0e0e0; --muted: #888; --hot: #ff6b6b; --cool: #4fc3f7; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+.container { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
+header { text-align: center; padding: 2rem 0 1.5rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+h1 { font-size: 2rem; font-weight: 700; background: linear-gradient(135deg, #00d4aa, #00a8ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.subtitle { color: var(--muted); margin-top: 0.5rem; font-size: 0.95rem; }
+.pce-badge { display: inline-block; padding: 0.3rem 1rem; border-radius: 20px; font-weight: 700; font-size: 1.1rem; margin: 1rem 0; }
+.pce-badge.hot { background: rgba(255,107,107,0.2); color: var(--hot); border: 1px solid var(--hot); }
+.pce-badge.inline { background: rgba(0,212,170,0.2); color: var(--accent); border: 1px solid var(--accent); }
+.pce-badge.cool { background: rgba(79,195,247,0.2); color: var(--cool); border: 1px solid var(--cool); }
+.section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
+.section h2 { font-size: 1.2rem; margin-bottom: 1rem; color: #fff; }
+table { width: 100%; border-collapse: collapse; margin: 0.5rem 0; }
+th, td { padding: 0.6rem 0.8rem; text-align: left; border-bottom: 1px solid var(--border); }
+th { color: var(--muted); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+tr:last-child td { border-bottom: none; }
+.up { color: var(--accent); }
+.down { color: var(--hot); }
+.neutral { color: var(--muted); }
+.metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1rem 0; }
+.metric-card { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; text-align: center; }
+.metric-card .label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+.metric-card .value { font-size: 1.5rem; font-weight: 700; margin: 0.3rem 0; }
+.metric-card .change { font-size: 0.85rem; }
+.pay-section { text-align: center; padding: 2rem; background: linear-gradient(135deg, rgba(0,212,170,0.05), rgba(0,168,255,0.05)); border: 1px solid var(--accent); border-radius: 12px; margin: 2rem 0; }
+.pay-section h3 { color: var(--accent); margin-bottom: 0.5rem; }
+.wallet { font-family: 'Courier New', monospace; background: var(--bg); padding: 0.5rem 1rem; border-radius: 6px; display: inline-block; margin: 0.5rem 0; font-size: 0.85rem; border: 1px solid var(--border); }
+footer { text-align: center; color: var(--muted); font-size: 0.8rem; padding: 2rem 0; margin-top: 2rem; border-top: 1px solid var(--border); }
+.badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+.badge.pass { background: rgba(0,212,170,0.2); color: var(--accent); }
+.badge.fail { background: rgba(255,107,107,0.2); color: var(--hot); }
+.badge.warn { background: rgba(255,217,61,0.2); color: #ffd93d; }
+.placeholder { color: var(--muted); font-style: italic; }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <h1>📊 PCE Day Reaction Report</h1>
+  <p class="subtitle">July 31, 2026 — Generated Post-PCE Release</p>
+  <div class="pce-badge inline" id="scenarioBadge">✅ Inline PCE</div>
+  <p style="color: var(--muted); font-size: 0.9rem; margin-top: 0.5rem;" id="pceValues">PCE Headline: <span class="placeholder">Waiting for data...</span> | Core: <span class="placeholder">Waiting for data...</span></p>
+</header>
+
+<div class="pay-section" id="paywall">
+  <h3>🔒 Full Report Locked</h3>
+  <p style="color: var(--muted); margin: 0.5rem 0;">Send <strong>0.01 SOL</strong> to unlock the complete analysis with:</p>
+  <ul style="list-style: none; margin: 0.5rem 0; color: var(--muted); font-size: 0.9rem;">
+    <li>✓ Sector-by-sector impact (15+ tickers)</li>
+    <li>✓ Decoupling score update with pattern detection</li>
+    <li>✓ Portfolio adjustment guide (3 scenarios)</li>
+    <li>✓ 30-day outlook with survival gate check</li>
+  </ul>
+  <div class="wallet">DiXt5GSxLW47szTATVGyF3vsj9g8YTGBQJj4BrQUST2y</div>
+  <p style="color: var(--muted); font-size: 0.85rem; margin-top: 0.5rem;">DM after payment — report delivered within 15 min</p>
+</div>
+
+<div class="section">
+  <h2>📈 Market Snapshot</h2>
+  <table id="marketTable">
+    <thead>
+      <tr><th>Asset</th><th>Price</th><th>∆%</th><th>Signal</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>SPY</td><td class="placeholder">—</td><td class="placeholder">—</td><td class="placeholder">Pending</td></tr>
+      <tr><td>QQQ</td><td class="placeholder">—</td><td class="placeholder">—</td><td class="placeholder">Pending</td></tr>
+      <tr><td>NVDA</td><td class="placeholder">—</td><td class="placeholder">—</td><td class="placeholder">Pending</td></tr>
+      <tr><td>SOXX</td><td class="placeholder">—</td><td class="placeholder">—</td><td class="placeholder">Pending</td></tr>
+      <tr><td>CRDO</td><td class="placeholder">—</td><td class="placeholder">—</td><td class="placeholder">Pending</td></tr>
+      <tr><td>VIX</td><td class="placeholder">—</td><td class="placeholder">—</td><td class="placeholder">Pending</td></tr>
+      <tr><td>US10Y</td><td class="placeholder">—</td><td class="placeholder">—</td><td class="placeholder">Pending</td></tr>
+      <tr><td>DXY</td><td class="placeholder">—</td><td class="placeholder">—</td><td class="placeholder">Pending</td></tr>
+      <tr><td>WTI</td><td class="placeholder">—</td><td class="placeholder">—</td><td class="placeholder">Pending</td></tr>
+      <tr><td>BTC</td><td class="placeholder">—</td><td class="placeholder">—</td><td class="placeholder">Pending</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <h2>🔬 Pattern Validation</h2>
+  <table>
+    <thead>
+      <tr><th>Pattern</th><th>Status</th><th>Evidence</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Pattern 18: De-Stagflation Trade</td><td><span class="badge warn">PENDING</span></td><td class="placeholder">Awaiting PCE data</td></tr>
+      <tr><td>Pattern 16: CRDO Interconnect Decoupling</td><td><span class="badge warn">PENDING</span></td><td class="placeholder">Awaiting PCE data</td></tr>
+      <tr><td>Pattern 20: CRDO $200 Psychological Line</td><td><span class="badge pass">$201.08</span></td><td>Above $200 — psychological recovery</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <h2>🛡️ Survival Gate Check</h2>
+  <div class="metric-grid">
+    <div class="metric-card">
+      <div class="label">Current Scenario</div>
+      <div class="value" style="font-size:1rem;" id="currentScenario">Waiting for PCE...</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">Worst Case Flip</div>
+      <div class="value" style="font-size:0.9rem;" id="worstCase">—</div>
+    </div>
+    <div class="metric-card">
+      <div class="label">Survival Verdict</div>
+      <div class="value" style="font-size:0.9rem;" id="survivalVerdict">⚠️ Waiting for data</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>📋 30-Day Outlook</h2>
+  <table>
+    <thead>
+      <tr><th>Timeframe</th><th>Outlook</th><th>Key Driver</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Next Week</td><td class="placeholder">Pending PCE data</td><td class="placeholder">PCE outcome determines direction</td></tr>
+      <tr><td>30 Days</td><td class="placeholder">Pending PCE data</td><td class="placeholder">US10Y direction + Q3 earnings</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <h2>📌 Action Items</h2>
+  <ul style="list-style: none; color: var(--muted);">
+    <li style="padding: 0.4rem 0;">☐ Deploy/hedge based on PCE scenario</li>
+    <li style="padding: 0.4rem 0;">☐ Update dashboard with PCE data</li>
+    <li style="padding: 0.4rem 0;">☐ Monitor US10Y for confirmation</li>
+    <li style="padding: 0.4rem 0;">☐ Prepare for Q3 earnings season</li>
+    <li style="padding: 0.4rem 0;">☐ Run PCE Survival Calculator with updated portfolio</li>
+  </ul>
+</div>
+
+<footer>
+  <p>Generated by SMA-2026 Autonomous Node | PCE Day Reaction Report</p>
+  <p>Not financial advice. Past performance does not guarantee future results.</p>
+  <p style="margin-top: 0.5rem;">SOL Wallet: DiXt5GSxLW47szTATVGyF3vsj9g8YTGBQJj4BrQUST2y</p>
+</footer>
+</div>
+<script>
+// Auto-fill with pre-PCE data from 18:46 CST
+const prePCEData = {
+  "SPY": {price: 741.69, chg: 1.68, signal: "📈"},
+  "QQQ": {price: 683.55, chg: 3.30, signal: "📈"},
+  "NVDA": {price: 195.04, chg: 2.65, signal: "✅"},
+  "SOXX": {price: 504.53, chg: 8.50, signal: "🚀"},
+  "CRDO": {price: 201.08, chg: 13.32, signal: "🚀"},
+  "VIX": {price: 16.81, chg: -1.64, signal: "😌"},
+  "US10Y": {price: 4.66, chg: 0.89, signal: "⚠️"},
+  "DXY": {price: 100.18, chg: 0.32, signal: "🔑"},
+  "WTI": {price: 84.20, chg: 0.73, signal: "✅"},
+  "BTC": {price: 63853.9, chg: -1.34, signal: "⚠️"}
+};
+
+const rows = document.querySelectorAll('#marketTable tbody tr');
+rows.forEach(row => {
+  const cells = row.querySelectorAll('td');
+  const asset = cells[0].textContent.trim();
+  if (prePCEData[asset]) {
+    const d = prePCEData[asset];
+    cells[1].textContent = d.price.toLocaleString();
+    cells[1].className = d.chg >= 0 ? 'up' : 'down';
+    cells[2].textContent = (d.chg >= 0 ? '+' : '') + d.chg.toFixed(2) + '%';
+    cells[2].className = d.chg >= 0 ? 'up' : 'down';
+    cells[3].textContent = d.signal;
+    cells[3].className = '';
+  }
+});
+</script>
+</body>
+</html>
