@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semi Decoupling Dashboard - PCE Day PRE-PCE</title>
+<style>
+  :root { --bg: #0d1117; --card: #161b22; --border: #30363d; --text: #e6edf3; --text-dim: #8b949e; --green: #3fb950; --red: #f85149; --yellow: #d29922; --blue: #58a6ff; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); padding: 20px; max-width: 1200px; margin: 0 auto; }
+  h1 { font-size: 1.5rem; margin-bottom: 4px; }
+  .subtitle { color: var(--text-dim); font-size: 0.85rem; margin-bottom: 20px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+  @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+  .card h2 { font-size: 1rem; margin-bottom: 8px; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  th { text-align: left; color: var(--text-dim); padding: 6px 8px; border-bottom: 1px solid var(--border); font-weight: 500; }
+  td { padding: 6px 8px; border-bottom: 1px solid var(--border); }
+  .green { color: var(--green); }
+  .red { color: var(--red); }
+  .yellow { color: var(--yellow); }
+  .score { font-size: 2.5rem; font-weight: 700; text-align: center; }
+  .score-label { text-align: center; color: var(--text-dim); font-size: 0.8rem; }
+  .footer { color: var(--text-dim); font-size: 0.75rem; text-align: center; padding: 20px 0; border-top: 1px solid var(--border); margin-top: 20px; }
+  .alert { border-left: 4px solid var(--green); background: rgba(63,185,80,0.1); padding: 10px; border-radius: 4px; margin-bottom: 12px; font-size: 0.85rem; }
+  .alert-yellow { border-left: 4px solid var(--yellow); background: rgba(210,153,34,0.1); padding: 10px; border-radius: 4px; margin-bottom: 12px; font-size: 0.85rem; }
+</style>
+</head>
+<body>
+<h1>📡 Semi Decoupling Dashboard — PCE Day PRE-PCE</h1>
+<div class="subtitle">Updated: 2026-07-31 14:04 CST | PCE Release: TODAY 08:30 ET</div>
+
+<div class="alert">
+<strong>🟢 PRE-PCE SQUEEZE INTACT:</strong> SOXX +8.50%, LRCX +18.0%, MU +18.4%, CRDO +13.3%. Pre-PCE squeeze intact. DXY 100.2 — breaking below 100 is massive risk-on signal. US10Y 4.66% — the last holdout pricing hot PCE.
+</div>
+
+<div class="grid">
+  <div class="card">
+    <h2>🟢 Semi Sector (Squeeze)</h2>
+    <table>
+      <tr><th>Asset</th><th>Price</th><th>Change</th><th>Signal</th></tr>
+      <tr><td>LRCX</td><td>$297.72</td><td class="green">+17.98%</td><td class="green">🚀</td></tr>
+      <tr><td>MU</td><td>$874.66</td><td class="green">+18.36%</td><td class="green">🚀</td></tr>
+      <tr><td>AMAT</td><td>$501.77</td><td class="green">+14.97%</td><td class="green">🚀</td></tr>
+      <tr><td>CRDO</td><td>$201.08</td><td class="green">+13.32%</td><td class="green">🚀</td></tr>
+      <tr><td>KLAC</td><td>$180.33</td><td class="green">+5.96%</td><td class="green">🚀</td></tr>
+      <tr><td>AMD</td><td>$485.39</td><td class="green">+13.00%</td><td class="green">🚀</td></tr>
+      <tr><td>MRVL</td><td>$183.30</td><td class="green">+12.18%</td><td class="green">🚀</td></tr>
+      <tr><td>SOXX</td><td>$504.53</td><td class="green">+8.50%</td><td class="green">🚀</td></tr>
+      <tr><td>NVDA</td><td>$195.04</td><td class="green">+2.65%</td><td class="green">✅</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h2>📊 Macro & Rates</h2>
+    <table>
+      <tr><th>Asset</th><th>Price</th><th>Change</th><th>Signal</th></tr>
+      <tr><td>SPY</td><td>$741.69</td><td class="green">+1.68%</td><td class="green">✅</td></tr>
+      <tr><td>QQQ</td><td>$683.55</td><td class="green">+3.30%</td><td class="green">✅</td></tr>
+      <tr><td>VIX</td><td>17.09</td><td class="red">-17.28%</td><td class="green">✅</td></tr>
+      <tr><td>US10Y</td><td>4.660%</td><td class="green">+0.89%</td><td class="yellow">⚠️</td></tr>
+      <tr><td>DXY</td><td>100.24</td><td class="green">+0.22%</td><td class="green">✅</td></tr>
+      <tr><td>WTI</td><td>$81.62</td><td class="red">-2.36%</td><td class="green">✅</td></tr>
+    </table>
+    <div style="margin-top:8px;font-size:0.8rem;color:var(--yellow);">US10Y at 4.660% — the last holdout pricing hot PCE. DXY 100.24 — BELOW 100 = BULLISH</div>
+  </div>
+  <div class="card">
+    <h2>🛡️ Safe Haven / Alt</h2>
+    <table>
+      <tr><th>Asset</th><th>Price</th><th>Change</th><th>Signal</th></tr>
+      <tr><td>GLD</td><td>$377.16</td><td class="green">+1.64%</td><td class="green">✅</td></tr>
+      <tr><td>GOLD</td><td>$4133.50</td><td class="green">+0.81%</td><td class="green">✅</td></tr>
+      <tr><td>TLT</td><td>$82.80</td><td class="red">-0.06%</td><td class="red">⚠️</td></tr>
+      <tr><td>BTC</td><td>$64277</td><td class="green">+0.58%</td><td class="green">✅</td></tr>
+      <tr><td>XLE</td><td>$58.96</td><td class="green">+0.53%</td><td class="green">✅</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h2>🏢 Mega-Cap Tech</h2>
+    <table>
+      <tr><th>Asset</th><th>Price</th><th>Change</th><th>Signal</th></tr>
+      <tr><td>MSFT</td><td>$451.10</td><td class="green">+15.51%</td><td class="green">🚀</td></tr>
+      <tr><td>AMZN</td><td>$238.65</td><td class="green">+5.29%</td><td class="green">✅</td></tr>
+      <tr><td>GOOGL</td><td>$333.65</td><td class="red">-0.91%</td><td class="yellow">⚠️</td></tr>
+      <tr><td>META</td><td>$539.03</td><td class="red">-7.95%</td><td class="red">🚨</td></tr>
+      <tr><td>AAPL</td><td>$331.40</td><td class="red">-2.01%</td><td class="yellow">⚠️</td></tr>
+      <tr><td>AVGO</td><td>$384.68</td><td class="green">+3.88%</td><td class="green">✅</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="card">
+    <h2>🎯 Decoupling Score</h2>
+    <div class="score" style="color: #3fb950">7.3</div>
+    <div class="score-label">/ 10 (NVDA vs SOXX divergence)</div>
+    <div style="margin-top: 12px; font-size: 0.85rem;">
+      NVDA +2.65% vs SOXX +8.50%<br>
+      Diff: 5.85pp — Decoupling <strong>flipped</strong> (NVDA underperforming)
+    </div>
+    <div style="margin-top: 8px; font-size: 0.8rem; color: var(--yellow);">
+      NVDA lagging semi sector — this is a catch-up trade setup. If PCE is cool, NVDA $200+ is in play.
+    </div>
+  </div>
+  <div class="card">
+    <h2>🧠 Pattern Status</h2>
+    <table>
+      <tr><td>P16: CRDO Interconnect Decoupling</td><td class="green">RECOVERING ($201.08)</td></tr>
+      <tr><td>P19: Bid-Ask Spread Signal</td><td class="green">NORMALIZED</td></tr>
+      <tr><td>P20: CRDO $200 Invalidation</td><td class="yellow">TESTING ($201.08)</td></tr>
+      <tr><td>P18: De-Stagflation Trade</td><td class="green">ACTIVE</td></tr>
+      <tr><td>PCE Asymmetry</td><td class="green">UPSIDE HEAVY (80%)</td></tr>
+      <tr><td>DXY ≥ 100</td><td class="red">NEUTRAL</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="alert-yellow">
+<strong>⚠️ PCE Day Watchlist (Jul 31):</strong>
+<br>• 08:30 ET — PCE Headline & Core MoM/YoY
+<br>• 08:30 ET — Personal Income & Spending
+<br>• 08:30 ET — Employment Cost Index (ECI)
+<br>• 10:00 ET — Michigan Consumer Sentiment (Final)
+<br>• Key Level: US10Y < 4.50% = Bullish. US10Y > 4.75% = Bearish.
+<br>• DXY 99.87 — Below 100 confirms USD weakness = risk-on catalyst
+</div>
+
+<div class="footer">
+SMA-2026 Autonomous Node · PCE Day PRE-PCE · Run 115 · Data: yfinance live
+</div>
+</body>
+</html>

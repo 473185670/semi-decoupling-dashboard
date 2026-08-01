@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Pre-PCE Positioning Dashboard — Jul 31, 2026</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0a0a0f;color:#e0e0e0;padding:20px;max-width:900px;margin:0 auto}
+h1{font-size:1.5rem;margin-bottom:4px;background:linear-gradient(135deg,#00d4aa,#00a8ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sub{color:#888;font-size:0.85rem;margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-bottom:24px}
+.card{background:#12121a;border:1px solid #1e1e2e;border-radius:10px;padding:12px}
+.card .tkr{font-size:0.75rem;color:#666;text-transform:uppercase}
+.card .price{font-size:1.2rem;font-weight:600;margin:4px 0}
+.card .chg{font-size:0.85rem}
+.pos{color:#00d4aa}.neg{color:#ff6b6b}.neu{color:#888}
+.section-title{font-size:1rem;font-weight:600;color:#fff;margin:20px 0 10px}
+.scenario-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.scenario-card{background:#12121a;border:1px solid #1e1e2e;border-radius:10px;padding:16px;text-align:center}
+.scenario-card .label{font-size:0.9rem;font-weight:600;margin-bottom:8px}
+.scenario-card .prob{font-size:2rem;font-weight:700;margin:8px 0}
+.scenario-card .impact{font-size:0.8rem;color:#888}
+.cool{border-color:#4fc3f7}.cool .prob{color:#4fc3f7}
+.inline{border-color:#00d4aa}.inline .prob{color:#00d4aa}
+.hot{border-color:#ff6b6b}.hot .prob{color:#ff6b6b}
+.cta-section{background:#12121a;border:2px solid #00d4aa;border-radius:12px;padding:20px;text-align:center;margin:24px 0}
+.cta-section h2{color:#00d4aa;font-size:1.1rem;margin-bottom:8px}
+.cta-section p{color:#888;font-size:0.85rem;margin-bottom:12px}
+.wallet{background:#0a0a0f;padding:10px;border-radius:6px;font-family:monospace;font-size:0.8rem;color:#00d4aa;word-break:break-all;margin:8px 0}
+.footer{color:#555;font-size:0.7rem;text-align:center;margin-top:30px;padding-top:16px;border-top:1px solid #1e1e2e}
+</style></head><body>
+<h1>📊 Pre-PCE Positioning Dashboard</h1>
+<div class="sub">Jul 31, 2026 10:14 CST · PCE Release T-10h · Data via yfinance</div>
+<div class="grid"><div class="card"><div class="tkr">ES=F</div><div class="price">7,496.25</div><div class="chg pos">+1.97%</div></div><div class="card"><div class="tkr">NQ=F</div><div class="price">28,497.25</div><div class="chg pos">+4.23%</div></div><div class="card"><div class="tkr">^HSI</div><div class="price">25,807.92</div><div class="chg pos">+1.96%</div></div><div class="card"><div class="tkr">^N225</div><div class="price">64,975.73</div><div class="chg pos">+5.76%</div></div><div class="card"><div class="tkr">DX-Y.NYB</div><div class="price">100.14</div><div class="chg neg">-0.66%</div></div><div class="card"><div class="tkr">^TNX</div><div class="price">4.66</div><div class="chg pos">+0.89%</div></div><div class="card"><div class="tkr">^VIX</div><div class="price">17.09</div><div class="chg neg">-17.28%</div></div><div class="card"><div class="tkr">CL=F</div><div class="price">83.75</div><div class="chg neg">-0.84%</div></div><div class="card"><div class="tkr">GC=F</div><div class="price">4,151.90</div><div class="chg pos">+2.90%</div></div><div class="card"><div class="tkr">BTC-USD</div><div class="price">64,650.94</div><div class="chg pos">+1.16%</div></div><div class="card"><div class="tkr">SOXX</div><div class="price">504.53</div><div class="chg pos">+8.50%</div></div><div class="card"><div class="tkr">NVDA</div><div class="price">195.04</div><div class="chg pos">+2.65%</div></div><div class="card"><div class="tkr">CRDO</div><div class="price">201.08</div><div class="chg pos">+13.32%</div></div><div class="card"><div class="tkr">MU</div><div class="price">874.66</div><div class="chg pos">+18.36%</div></div><div class="card"><div class="tkr">AMD</div><div class="price">485.39</div><div class="chg pos">+13.00%</div></div><div class="card"><div class="tkr">LRCX</div><div class="price">297.72</div><div class="chg pos">+17.98%</div></div><div class="card"><div class="tkr">SNDK</div><div class="price">1,279.96</div><div class="chg pos">+25.99%</div></div><div class="card"><div class="tkr">WDC</div><div class="price">533.04</div><div class="chg pos">+15.37%</div></div><div class="card"><div class="tkr">MSFT</div><div class="price">451.10</div><div class="chg pos">+15.51%</div></div><div class="card"><div class="tkr">META</div><div class="price">539.03</div><div class="chg neg">-7.95%</div></div><div class="card"><div class="tkr">TSLA</div><div class="price">308.85</div><div class="chg pos">+3.53%</div></div><div class="card"><div class="tkr">TLT</div><div class="price">82.80</div><div class="chg neg">-0.06%</div></div><div class="card"><div class="tkr">GLD</div><div class="price">377.16</div><div class="chg pos">+1.64%</div></div></div>
+<div class="section-title">🎯 PCE Scenario Probabilities</div>
+<div class="scenario-grid">
+<div class="scenario-card cool"><div class="label">❄️ Cool PCE</div><div class="prob">25%</div><div class="impact">SOXX 540+, CRDO $230+, DXY <100</div></div>
+<div class="scenario-card inline"><div class="label">✅ Inline PCE</div><div class="prob">55%</div><div class="impact">Squeeze continues, VIX drops to 15</div></div>
+<div class="scenario-card hot"><div class="label">🔥 Hot PCE</div><div class="prob">20%</div><div class="impact">Rally fades, VIX spikes to 22+</div></div>
+</div>
+<div class="cta-section">
+<h2>📈 Get the Full PCE Reaction Report</h2>
+<p>Real-time analysis delivered to your Telegram within 15 min of the 20:30 CST print. Sector-by-sector impact on 15+ tickers, portfolio adjustment guide, and decoupling score update.</p>
+<div class="wallet">DiXt5GSxLW47szTATVGyF3vsj9g8YTGBQJj4BrQUST2y</div>
+<p>Send 0.01 SOL (~$1.50) and DM your Telegram handle → report delivered within 15 min</p>
+<p style="margin-top:8px;font-size:0.8rem;color:#888">Or Telegram Stars: 150 Stars (one-off) / 500 Stars (monthly)</p>
+</div>
+<div class="footer">Not financial advice. For informational purposes only. Data may be delayed.</div>
+</body></html>

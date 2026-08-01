@@ -1,0 +1,84 @@
+{
+  "timestamp": "2026-08-01 14:10 CST",
+  "run": 154,
+  "weekend_mode": true,
+  "next_event": "ISM Services PMI (Aug 5) \u2014 consensus 54.2",
+  "data": {
+    "SPY": {
+      "price": 747.03,
+      "d1%": 0.72,
+      "w1%": 1.2,
+      "m1%": 0.5
+    },
+    "QQQ": {
+      "price": 690.5,
+      "d1%": 1.02,
+      "w1%": 1.0,
+      "m1%": -6.5
+    },
+    "NVDA": {
+      "price": 198.5,
+      "d1%": 1.77,
+      "w1%": -4.5,
+      "m1%": -1.8
+    },
+    "SOXX": {
+      "price": 510.0,
+      "d1%": 1.09,
+      "w1%": -3.5,
+      "m1%": -8.0
+    },
+    "CRDO": {
+      "price": 206.99,
+      "d1%": 2.94,
+      "w1%": 7.6,
+      "m1%": 15.3
+    },
+    "AMZN": {
+      "price": 271.58,
+      "d1%": 15.32,
+      "w1%": 15.0,
+      "m1%": 12.0
+    },
+    "VIX": {
+      "price": 15.99,
+      "d1%": -1.78,
+      "w1%": -12.0,
+      "m1%": -25.0
+    },
+    "US10Y": {
+      "price": 4.74,
+      "d1%": 0.0,
+      "w1%": 0.14,
+      "m1%": -0.1
+    },
+    "DXY": {
+      "price": 99.8,
+      "d1%": -0.19,
+      "w1%": -0.8,
+      "m1%": -2.1
+    },
+    "BTC": {
+      "price": 62944,
+      "d1%": -0.5,
+      "w1%": -2.0,
+      "m1%": -5.0
+    }
+  },
+  "decoupling_score": 9.5,
+  "signals": [
+    "ISM CONSENSUS: 54.2 \u2014 services expansion confirmed",
+    "DXY 99.80 \u2014 Sub-100 structural regime shift",
+    "US10Y 4.74% \u2014 1bp from 4.75% critical (Monday binary)",
+    "VIX 15.99 \u2014 Multi-week low, fear fully unwound",
+    "CRDO 206.99 \u2014 Decoupling score 9.5/10 (P16 confirmed)",
+    "AMZN 271.58 (+15.32%) \u2014 earnings anchor, rotation trade"
+  ],
+  "ism_week_playbook": {
+    "mon_premarket": "Check US10Y open \u2192 above 4.75% = delay entries",
+    "tue_adjust": "Adjust based on Monday close",
+    "wed_ism": "70% invested base case (consensus 54.2)",
+    "thu_risk_reduce": "Trim 10-15%",
+    "fri_execute": "Execute ISM playbook (bull/base/bear)"
+  }
+}

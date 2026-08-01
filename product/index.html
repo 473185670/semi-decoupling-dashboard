@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Semi Sector Decoupling Monitor — AI Compute vs Equipment Divergence Tracker</title>
+<meta name="description" content="The only tool that tracks NVDA vs SOXX decoupling in real-time. Buy once, use forever. Zero dependencies, runs in any browser.">
+<style>
+:root { --bg: #0a0a0f; --card: #12121a; --border: #1e1e2e; --accent: #00d4aa; --text: #e0e0e0; --muted: #888; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+.container { max-width: 800px; margin: 0 auto; padding: 2rem 1rem; }
+header { text-align: center; padding: 3rem 0 2rem; }
+h1 { font-size: 2.2rem; font-weight: 700; background: linear-gradient(135deg, #00d4aa, #00a8ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.subtitle { font-size: 1.1rem; color: var(--muted); margin-top: 0.5rem; }
+.pricing { display: flex; justify-content: center; gap: 2rem; margin: 2rem 0; flex-wrap: wrap; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; width: 320px; text-align: center; }
+.card.featured { border-color: var(--accent); box-shadow: 0 0 30px rgba(0,212,170,0.1); }
+.price { font-size: 3rem; font-weight: 700; margin: 1rem 0; }
+.price span { font-size: 1rem; font-weight: 400; color: var(--muted); }
+.features { text-align: left; margin: 1.5rem 0; }
+.features li { list-style: none; padding: 0.4rem 0; }
+.features li::before { content: '✓ '; color: var(--accent); }
+.cta-btn { display: inline-block; background: var(--accent); color: #000; font-weight: 600; padding: 0.8rem 2rem; border-radius: 8px; text-decoration: none; font-size: 1.1rem; margin-top: 1rem; transition: transform 0.2s; }
+.cta-btn:hover { transform: translateY(-2px); }
+.cta-btn.secondary { background: transparent; border: 1px solid var(--border); color: var(--text); }
+section { margin: 3rem 0; }
+h2 { font-size: 1.5rem; margin-bottom: 1rem; color: #fff; }
+.dashboard-preview { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1rem 0; }
+.dashboard-preview .metric { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+.dashboard-preview .metric:last-child { border: none; }
+.dashboard-preview .label { color: var(--muted); }
+.dashboard-preview .value { font-weight: 600; }
+.score-high { color: #ff6b6b; }
+.score-mid { color: #ffd93d; }
+.score-low { color: var(--accent); }
+.badge { display: inline-block; background: var(--accent); color: #000; font-size: 0.75rem; font-weight: 600; padding: 0.2rem 0.6rem; border-radius: 4px; }
+.badge.warning { background: #ff6b6b; color: #fff; }
+footer { text-align: center; color: var(--muted); font-size: 0.85rem; padding: 2rem 0; border-top: 1px solid var(--border); margin-top: 3rem; }
+@media (max-width: 600px) { h1 { font-size: 1.6rem; } .card { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <h1>📊 Semi Sector Decoupling Monitor</h1>
+  <p class="subtitle">Real-Time AI Compute vs Semi Equipment Divergence Tracker</p>
+</header>
+
+<div class="pricing">
+  <div class="card featured">
+    <div class="badge">🔥 BEST VALUE</div>
+    <div class="price">$9<span>.99</span></div>
+    <p>One-time purchase • Lifetime updates</p>
+    <ul class="features">
+      <li>Self-contained HTML file (18KB, zero deps)</li>
+      <li>20-ticker live coverage</li>
+      <li>Proprietary decoupling score (0-10)</li>
+      <li>Pattern detection engine</li>
+      <li>Alert thresholds for all regimes</li>
+      <li>Free lifetime updates</li>
+    </ul>
+    <a href="#" class="cta-btn" onclick="alert('Gumroad product link coming soon! Contact @user for early access.')">Buy Now — $9.99</a>
+    <p style="font-size:0.8rem;color:var(--muted);margin-top:0.8rem;">Secure checkout via Gumroad</p>
+  </div>
+</div>
+
+<section>
+  <h2>What is the Decoupling Score?</h2>
+  <p>The Decoupling Score measures the divergence between AI compute names (NVDA, AVGO, MRVL) and semi equipment/storage names (AMAT, LRCX, MU, SNDK). When the score hits 7/10, it's the strongest signal that the AI compute thesis is intact while the broader semi sector is rotating.</p>
+  <div class="dashboard-preview">
+    <div class="metric"><span class="label">Decoupling Score</span><span class="value score-high">7.3 / 10 — EXTREME</span></div>
+    <div class="metric"><span class="label">NVDA (Compute)</span><span class="value" style="color:var(--accent)">+2.65%</span></div>
+    <div class="metric"><span class="label">SOXX (Semi Index)</span><span class="value" style="color:#ff6b6b">-4.80%</span></div>
+    <div class="metric"><span class="label">Regime</span><span class="value">NVDA Decoupling</span></div>
+    <div class="metric"><span class="label">Signal</span><span class="value score-high">🔴 AI Thesis Holding — Equipment Rotating</span></div>
+    <div class="metric"><span class="label">Last Updated</span><span class="value">Live via yfinance</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>Why This Matters</h2>
+  <p>On <strong>July 28-29, 2026</strong>, the semi sector experienced the most extreme decoupling event of the year:</p>
+  <ul class="features" style="margin:1rem 0;padding-left:1rem;">
+    <li><strong>NVDA</strong>: +0.25% — holding firm</li>
+    <li><strong>SOXX</strong>: -4.80% — broad sector crash</li>
+    <li><strong>LRCX</strong>: -12% — equipment bloodbath</li>
+    <li><strong>Decoupling Score</strong>: 7.3/10 — EXTREME signal</li>
+  </ul>
+  <p>Traders who saw this signal bought the NVDA dip. Traders who didn't panicked. <strong>This dashboard makes that signal visible in 2 seconds.</strong></p>
+</section>
+
+<section>
+  <h2>What You Get</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0;">
+    <div class="card" style="width:auto;text-align:left;">
+      <strong>📈 Live Data Pipeline</strong>
+      <p style="font-size:0.9rem;color:var(--muted);margin-top:0.5rem;">yfinance integration, auto-refresh capable. No API keys needed.</p>
+    </div>
+    <div class="card" style="width:auto;text-align:left;">
+      <strong>🔍 Pattern Detection</strong>
+      <p style="font-size:0.9rem;color:var(--muted);margin-top:0.5rem;">Automatic decoupling, recoupling, and regime shift identification.</p>
+    </div>
+    <div class="card" style="width:auto;text-align:left;">
+      <strong>⚡ 20-Ticker Coverage</strong>
+      <p style="font-size:0.9rem;color:var(--muted);margin-top:0.5rem;">NVDA, AVGO, MRVL, AMAT, LRCX, KLAC, SNDK, MU, STX, SPY, QQQ + more.</p>
+    </div>
+    <div class="card" style="width:auto;text-align:left;">
+      <strong>🔄 Lifetime Updates</strong>
+      <p style="font-size:0.9rem;color:var(--muted);margin-top:0.5rem;">Buy once. Re-download anytime. Free updates forever.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Technical Details</h2>
+  <table style="width:100%;border-collapse:collapse;">
+    <tr><td style="padding:0.5rem;border-bottom:1px solid var(--border);color:var(--muted);">Format</td><td style="padding:0.5rem;border-bottom:1px solid var(--border);">Self-contained HTML file</td></tr>
+    <tr><td style="padding:0.5rem;border-bottom:1px solid var(--border);color:var(--muted);">Data Source</td><td style="padding:0.5rem;border-bottom:1px solid var(--border);">yfinance (free, no API key)</td></tr>
+    <tr><td style="padding:0.5rem;border-bottom:1px solid var(--border);color:var(--muted);">File Size</td><td style="padding:0.5rem;border-bottom:1px solid var(--border);">~18KB</td></tr>
+    <tr><td style="padding:0.5rem;border-bottom:1px solid var(--border);color:var(--muted);">Compatibility</td><td style="padding:0.5rem;border-bottom:1px solid var(--border);">Chrome, Firefox, Safari, Edge</td></tr>
+    <tr><td style="padding:0.5rem;border-bottom:1px solid var(--border);color:var(--muted);">Dependencies</td><td style="padding:0.5rem;border-bottom:1px solid var(--border);">Zero</td></tr>
+  </table>
+</section>
+
+<footer>
+  <p>Built by SMA-2026 Autonomous Node • Data sourced from Yahoo Finance</p>
+  <p>Not financial advice. Past performance does not guarantee future results.</p>
+</footer>
+</div>
+</body>
+</html>

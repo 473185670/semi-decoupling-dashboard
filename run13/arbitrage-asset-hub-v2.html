@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arbitrage Asset Hub — 44 Premium Digital Assets</title>
+<meta name="description" content="AI Agent套利资产门户：Python脚本、n8n工作流、Prompt工程包、MCP迁移工具、宏观研报 — 全部开源，欢迎赞助">
+<style>
+:root{--bg:#0f0f13;--card:#1a1a24;--accent:#6c5ce7;--accent2:#00cec9;--text:#e0e0e8;--muted:#8888a0;--border:#2a2a3a}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+.container{max-width:1200px;margin:0 auto;padding:20px}
+header{text-align:center;padding:60px 20px 40px;background:linear-gradient(135deg,#1a1a24 0%,#2a1a3a 100%);border-bottom:1px solid var(--border)}
+header h1{font-size:2.5em;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px}
+header p{color:var(--muted);font-size:1.1em}
+header .stats{display:flex;justify-content:center;gap:40px;margin-top:30px;flex-wrap:wrap}
+header .stat{text-align:center}
+header .stat .num{font-size:2em;font-weight:700;color:var(--accent2)}
+header .stat .label{color:var(--muted);font-size:.85em;text-transform:uppercase;letter-spacing:1px}
+.distro-banner{background:linear-gradient(135deg,#2d1b1b,#1a1a24);border:1px solid #e74c3c44;border-radius:12px;padding:20px;margin:30px auto;max-width:700px;text-align:center}
+.distro-banner h3{color:#e74c3c;margin-bottom:10px}
+.distro-banner p{color:var(--muted);font-size:.9em}
+.distro-banner .btn{display:inline-block;background:#e74c3c;color:#fff;padding:10px 24px;border-radius:8px;text-decoration:none;margin-top:10px;font-weight:600}
+.distro-banner .btn:hover{background:#c0392b}
+.categories{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px;margin:40px 0}
+.category{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:transform .2s,border-color .2s}
+.category:hover{transform:translateY(-2px);border-color:var(--accent)}
+.category-header{padding:16px 20px;background:linear-gradient(135deg,#1a1a24,var(--border));border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.category-header h2{font-size:1.1em;color:var(--accent2)}
+.category-header .badge{background:var(--accent);color:#fff;padding:2px 10px;border-radius:20px;font-size:.75em}
+.category-body{padding:16px 20px}
+.asset-item{padding:10px 0;border-bottom:1px solid #2a2a3a44}
+.asset-item:last-child{border-bottom:none}
+.asset-item .title{font-weight:600;font-size:.95em;color:var(--text)}
+.asset-item .desc{font-size:.82em;color:var(--muted);margin-top:4px}
+.asset-item .meta{display:flex;gap:10px;margin-top:6px;flex-wrap:wrap}
+.asset-item .tag{background:var(--accent);color:#fff;padding:1px 8px;border-radius:4px;font-size:.7em;opacity:.8}
+.asset-item .tag.code{background:#2ecc71}
+.asset-item .tag.content{background:#3498db}
+.asset-item .tag.template{background:#e67e22}
+.asset-item .tag.report{background:#9b59b6}
+.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:40px 0}
+.actions .btn{padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:600;font-size:.95em;transition:transform .2s}
+.actions .btn:hover{transform:translateY(-1px)}
+.actions .btn.primary{background:var(--accent);color:#fff}
+.actions .btn.secondary{background:var(--border);color:var(--text)}
+.actions .btn.donate{background:linear-gradient(135deg,#e74c3c,#f39c12);color:#fff}
+.sponsor-section{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:30px;margin:40px 0;text-align:center}
+.sponsor-section h2{color:var(--accent);margin-bottom:10px}
+.sponsor-section p{color:var(--muted);margin-bottom:20px}
+.sponsor-section .wallet{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:12px;font-family:monospace;font-size:.85em;margin:8px auto;max-width:400px;color:var(--accent2)}
+footer{text-align:center;padding:40px;color:var(--muted);font-size:.85em;border-top:1px solid var(--border);margin-top:40px}
+footer a{color:var(--accent2);text-decoration:none}
+@media(max-width:600px){.categories{grid-template-columns:1fr}header h1{font-size:1.8em}}
+</style>
+</head>
+<body>
+<header>
+  <h1>⚡ Arbitrage Asset Hub</h1>
+  <p>44 premium digital assets — AI Agent tools, templates, prompts, reports &amp; scripts</p>
+  <p style="color:var(--muted);font-size:.85em;margin-top:4px">All assets are open-source. Sponsorship keeps the pipeline running.</p>
+  <div class="stats">
+    <div class="stat"><div class="num">44</div><div class="label">Assets</div></div>
+    <div class="stat"><div class="num">12</div><div class="label">Python Scripts</div></div>
+    <div class="stat"><div class="num">18</div><div class="label">Content Articles</div></div>
+    <div class="stat"><div class="num">3</div><div class="label">Workflow Templates</div></div>
+    <div class="stat"><div class="num">50</div><div class="label">AI Prompts</div></div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="distro-banner">
+    <h3>🚨 7-Day Window: MCP Migration Deadline</h3>
+    <p>MCP (Model Context Protocol) migration cutoff is July 28, 2026. This article explains what every AI developer needs to know.</p>
+    <a class="btn" href="#zhihu-mcp">Read MCP Migration Article →</a>
+  </div>
+
+  <div class="actions">
+    <a class="btn primary" href="https://github.com/your-org/arbitrage-assets" target="_blank">📦 GitHub Repo</a>
+    <a class="btn donate" href="#sponsor">☕ Sponsor This Project</a>
+    <a class="btn secondary" href="#distribution-checklist">📋 Distribution Checklist</a>
+  </div>
+
+  <div class="categories">
+    <!-- Category: Python Automation Tools -->
+    <div class="category">
+      <div class="category-header">
+        <h2>🐍 Python Automation</h2>
+        <span class="badge">6 scripts</span>
+      </div>
+      <div class="category-body">
+        <div class="asset-item">
+          <div class="title">MCP Migration Assistant</div>
+          <div class="desc">Automated MCP server migration tool. Detects legacy MCP configurations, generates migration scripts.</div>
+          <div class="meta"><span class="tag code">python</span><span class="tag content">mcp</span></div>
+        </div>
+        <div class="asset-item">
+          <div class="title">MCP Security Audit Tool</div>
+          <div class="desc">Scans MCP server implementations for OWASP Top 10 vulnerabilities in AI agent contexts.</div>
+          <div class="meta"><span class="tag code">python</span><span class="tag content">security</span></div>
+        </div>
+        <div class="asset-item">
+          <div class="title">MCP Enterprise Security Baseline</div>
+          <div class="desc">Enterprise-grade MCP security configuration generator with compliance checks.</div>
+          <div class="meta"><span class="tag code">python</span><span class="tag content">enterprise</span></div>
+        </div>
+        <div class="asset-item">
+          <div class="title">AI Agent Deployer</div>
+          <div class="desc">Multi-platform AI agent deployment script. One command to deploy to any cloud.</div>
+          <div class="meta"><span class="tag code">python</span><span class="tag content">devops</span></div>
+        </div>
+        <div class="asset-item">
+          <div class="title">CrewAI Multi-Agent Swarm Starter</div>
+          <div class="desc">Production-ready CrewAI multi-agent swarm bootstrap with role-based orchestration.</div>
+          <div class="meta"><span class="tag code">python</span><span class="tag content">agent</span></div>
+        </div>
+        <div class="asset-item">
+          <div class="title">WordPress RCE Scanner</div>
+          <div class="desc">GPT-powered WordPress vulnerability scanner. Detects RCE, SQLi, and XSS vectors.</div>
+          <div class="meta"><span class="tag code">python</span><span class="tag content">security</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category: n8n Workflow Templates -->
+    <div class="category">
+      <div class="category-header">
+        <h2>⚙️ n8n Workflow Templates</h2>
+        <span class="badge">1 template</span>
+      </div>
+      <div class="category-body">
+        <div class="asset-item">
+          <div class="title">AI Agent Deployer n8n Workflow</div>
+          <div class="desc">Production-ready n8n workflow for AI Agent deployment lifecycle automation. Importable JSON, Docker Compose, CLI deploy script.</div>
+          <div class="meta">
+            <span class="tag template">n8n</span>
+            <span class="tag template">docker</span>
+            <span class="tag template">$49</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category: Prompt Engineering -->
+    <div class="category">
+      <div class="category-header">
+        <h2>🎯 Prompt Engineering Master Pack</h2>
+        <span class="badge">50 prompts</span>
+      </div>
+      <div class="category-body">
+        <div class="asset-item">
+          <div class="title">AI Agent Prompt Pack v1.0</div>
+          <div class="desc">50 production-tested prompts across 10 domains: coding, writing, analysis, strategy, marketing, research, security, data science, product management, customer support.</div>
+          <div class="meta">
+            <span class="tag content">markdown</span>
+            <span class="tag content">json</span>
+            <span class="tag content">$5</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category: Content Articles -->
+    <div class="category">
+      <div class="category-header">
+        <h2>📝 Content &amp; SEO Articles</h2>
+        <span class="badge">18 articles</span>
+      </div>
+      <div class="category-body">
+        <div class="asset-item" id="zhihu-mcp">
+          <div class="title">🔴 MCP Migration: 7-Day Urgent Guide</div>
+          <div class="desc">The MCP (Model Context Protocol) migration deadline is July 28. This article explains the migration, risks, and what every AI developer needs to do now.</div>
+          <div class="meta"><span class="tag content">zhihu</span><span class="tag content">mcp</span><span class="tag content">urgent</span></div>
+        </div>
+        <div class="asset-item">
+          <div class="title">n8n AI Agent Deployment Tutorial</div>
+          <div class="desc">Step-by-step guide to deploying AI agents with n8n. Docker Compose, workflow automation, and production tips.</div>
+          <div class="meta"><span class="tag content">zhihu</span><span class="tag content">n8n</span><span class="tag content">tutorial</span></div>
+        </div>
+        <div class="asset-item">
+          <div class="title">MCP Security Blindspot Analysis</div>
+          <div class="desc">Deep dive into MCP security vulnerabilities that most developers miss. OWASP-aligned assessment.</div>
+          <div class="meta"><span class="tag content">seo</span><span class="tag content">security</span></div>
+        </div>
+        <div class="asset-item">
+          <div class="title">China AI Open-Weight Strategy Report</div>
+          <div class="desc">Analysis of China's open-weight AI strategy, DeepSeek, Qwen, and the geopolitical implications.</div>
+          <div class="meta"><span class="tag content">report</span><span class="tag content">china</span><span class="tag content">ai</span></div>
+        </div>
+        <div class="asset-item">
+          <div class="title">Macro Signal Report: US10Y @ 4.60%</div>
+          <div class="desc">Quantitative macro analysis of US10Y yield at 4.60% and implications for risk assets.</div>
+          <div class="meta"><span class="tag report">macro</span><span class="tag content">finance</span></div>
+        </div>
+        <div class="asset-item">
+          <div class="title">AI Freelancer Kit (Chinese)</div>
+          <div class="desc">中文AI自由职业者工具包 — 如何用AI Agent自动化接单、交付、收款全流程。</div>
+          <div class="meta"><span class="tag content">chinese</span><span class="tag content">freelance</span></div>
+        </div>
+        <div class="asset-item">
+          <div class="title">CrewAI Zhihu Tutorial</div>
+          <div class="desc">中文CrewAI多智能体教程 — 从零搭建生产级Agent协作系统。</div>
+          <div class="meta"><span class="tag content">chinese</span><span class="tag content">agent</span></div>
+        </div>
+        <div class="asset-item">
+          <div class="title">AI Writing Arxiv Detector</div>
+          <div class="desc">Prompt-based AI-generated paper detection tool. Useful for academic peer review.</div>
+          <div class="meta"><span class="tag content">academic</span><span class="tag content">prompt</span></div>
+        </div>
+        <div class="asset-item">
+          <div class="title">China AI English Analysis</div>
+          <div class="desc">English-language analysis of China's AI ecosystem for international investors.</div>
+          <div class="meta"><span class="tag content">english</span><span class="tag content">china</span></div>
+        </div>
+        <div class="asset-item">
+          <div class="title">Twitter Thread: MCP Migration</div>
+          <div class="desc">Ready-to-post Twitter thread about MCP migration urgency. 10 tweets.</div>
+          <div class="meta"><span class="tag content">twitter</span><span class="tag content">mcp</span></div>
+        </div>
+        <div class="asset-item">
+          <div class="title">WeChat Article: MCP Crisis</div>
+          <div class="desc">微信公众号文章 — MCP迁移7天倒计时，开发者必读。</div>
+          <div class="meta"><span class="tag content">wechat</span><span class="tag content">chinese</span></div>
+        </div>
+        <div class="asset-item">
+          <div class="title">WeChat Article: AI Freelancer Kit</div>
+          <div class="desc">微信公众号文章 — AI自由职业者全流程自动化指南。</div>
+          <div class="meta"><span class="tag content">wechat</span><span class="tag content">freelance</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Category: Distribution Infrastructure -->
+    <div class="category">
+      <div class="category-header">
+        <h2>🚀 Distribution Infrastructure</h2>
+        <span class="badge">4 tools</span>
+      </div>
+      <div class="category-body">
+        <div class="asset-item">
+          <div class="title">Zero-Dep Distribution Engine</div>
+          <div class="desc">Shell script that generates distribution-ready directory structure. No dependencies required.</div>
+          <div class="meta"><span class="tag code">shell</span></div>
+        </div>
+        <div class="asset-item">
+          <div class="title">Distribution Hub (HTML)</div>
+          <div class="desc">Self-hosted HTML landing page for all assets. Deploy to Cloudflare Pages/Netlify.</div>
+          <div class="meta"><span class="tag content">html</span></div>
+        </div>
+        <div class="asset-item">
+          <div class="title">Distribution Engine (Python)</div>
+          <div class="desc">Python-based distribution server with asset listing and download functionality.</div>
+          <div class="meta"><span class="tag code">python</span></div>
+        </div>
+        <div class="asset-item">
+          <div class="title">Auto-Distribute Script</div>
+          <div class="desc">Automated distribution pipeline for batch asset deployment.</div>
+          <div class="meta"><span class="tag code">shell</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sponsor Section -->
+  <div class="sponsor-section" id="sponsor">
+    <h2>☕ Keep This Pipeline Running</h2>
+    <p>44 assets, 0 middlemen, 100% open-source. Every sponsorship directly funds API credits and compute for the next round of production.</p>
+    <div class="actions">
+      <a class="btn donate" href="https://github.com/sponsors/your-org" target="_blank">💖 GitHub Sponsors</a>
+      <a class="btn primary" href="https://ko-fi.com/your-org" target="_blank">☕ Buy Me a Coffee</a>
+      <a class="btn secondary" href="https://gumroad.com/l/your-org" target="_blank">📦 Gumroad Store</a>
+    </div>
+    <p style="margin-top:20px;font-size:.85em;color:var(--muted)">Direct crypto contributions:</p>
+    <div class="wallet">SOL (Solflare): `DiXt5GSxLW47szTATVGyF3vsj9g8YTGBQJj4BrQUST2y`>
+    <div class="wallet">SOL (Solflare): `DiXt5GSxLW47szTATVGyF3vsj9g8YTGBQJj4BrQUST2y`>
+    <div class="wallet">SOL: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
+  </div>
+
+  <!-- Distribution Checklist -->
+  <div class="sponsor-section" id="distribution-checklist" style="text-align:left">
+    <h2 style="text-align:center">📋 Distribution Checklist</h2>
+    <p style="text-align:center;color:var(--muted);margin-bottom:20px">7 tasks to go from 0% → 100% distribution</p>
+    <div style="display:grid;gap:12px">
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px 18px;display:flex;align-items:center;gap:12px">
+        <span style="color:#e74c3c;font-size:1.2em">🔴</span>
+        <div><strong>P0: Publish MCP Article to Zhihu</strong><br><span style="color:var(--muted);font-size:.85em">Deadline: July 28 — Copy assets/zhihu-mcp-urgent-20260721.md to zhuanlan.zhihu.com</span></div>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px 18px;display:flex;align-items:center;gap:12px">
+        <span style="color:#e74c3c;font-size:1.2em">🔴</span>
+        <div><strong>P0: Create Gumroad Account + Upload Prompt Pack</strong><br><span style="color:var(--muted);font-size:.85em">$5 entry point, first revenue stream</span></div>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px 18px;display:flex;align-items:center;gap:12px">
+        <span style="color:#e74c3c;font-size:1.2em">🔴</span>
+        <div><strong>P0: Upload n8n Template to Gumroad ($49)</strong><br><span style="color:var(--muted);font-size:.85em">Highest per-unit revenue potential</span></div>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px 18px;display:flex;align-items:center;gap:12px">
+        <span style="color:#e67e22;font-size:1.2em">🟠</span>
+        <div><strong>P1: Deploy Self-Hosted Asset Hub</strong><br><span style="color:var(--muted);font-size:.85em">Drag dist/run13/arbitrage-asset-hub-v2.html to Cloudflare Pages or Netlify</span></div>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px 18px;display:flex;align-items:center;gap:12px">
+        <span style="color:#e67e22;font-size:1.2em">🟠</span>
+        <div><strong>P1: Publish n8n Article to Zhihu</strong><br><span style="color:var(--muted);font-size:.85em">Copy assets/run11-n8n-deployer/dist/zhihu-article.md to Zhihu</span></div>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px 18px;display:flex;align-items:center;gap:12px">
+        <span style="color:#e67e22;font-size:1.2em">🟠</span>
+        <div><strong>P1: Publish to CSDN + 掘金</strong><br><span style="color:var(--muted);font-size:.85em">Mirror Zhihu articles to CSDN and 掘金 for broader reach</span></div>
+      </div>
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:14px 18px;display:flex;align-items:center;gap:12px">
+        <span style="color:#3498db;font-size:1.2em">🔵</span>
+        <div><strong>P2: Set Up GitHub Sponsors + Real Wallets</strong><br><span style="color:var(--muted);font-size:.85em">Replace placeholder addresses with real crypto wallets</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>Generated by Arbitrage AI Cron · Run #13 · 2026-07-21 19:25 CST</p>
+  <p><a href="https://github.com/your-org/arbitrage-assets">GitHub Repo</a> · All assets are open-source under MIT License</p>
+  <p>If you find this useful, <a href="#sponsor">sponsor the project</a> to keep the compute running.</p>
+</footer>
+</body>
+</html>
